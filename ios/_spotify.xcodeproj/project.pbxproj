@@ -40,11 +40,8 @@
 		60B31D936A054E39A4768868 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE7834F64D83435FBFE1945E /* Ionicons.ttf */; };
 		63C43B61317F47A79A2841B0 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5A0CF891084FACB8737145 /* FontAwesome.ttf */; };
 		6C2E09101FFEB08500D9538B /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E090D1FFEB08500D9538B /* SpotifyAuthentication.framework */; };
-		6C2E09111FFEB08500D9538B /* SpotifyAuthentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E090D1FFEB08500D9538B /* SpotifyAuthentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C2E09121FFEB08500D9538B /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E090E1FFEB08500D9538B /* SpotifyMetadata.framework */; };
-		6C2E09131FFEB08500D9538B /* SpotifyMetadata.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E090E1FFEB08500D9538B /* SpotifyMetadata.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C2E09141FFEB08500D9538B /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E090F1FFEB08500D9538B /* SpotifyAudioPlayback.framework */; };
-		6C2E09151FFEB08500D9538B /* SpotifyAudioPlayback.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E090F1FFEB08500D9538B /* SpotifyAudioPlayback.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6CA52F9A1FFF16E8007077CC /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		74555A9FBB9542EEB2EC6CF6 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5821CAF3426841E6A87BC78E /* Entypo.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -381,9 +378,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6C2E09131FFEB08500D9538B /* SpotifyMetadata.framework in Embed Frameworks */,
-				6C2E09111FFEB08500D9538B /* SpotifyAuthentication.framework in Embed Frameworks */,
-				6C2E09151FFEB08500D9538B /* SpotifyAudioPlayback.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1513,6 +1507,7 @@
 				);
 				INFOPLIST_FILE = _spotify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1541,6 +1536,7 @@
 				);
 				INFOPLIST_FILE = _spotify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
