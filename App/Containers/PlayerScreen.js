@@ -6,6 +6,15 @@ import {
   TouchableHighlight,
   View
 } from 'react-native';
+import {
+  Container,
+  Header,
+  Item,
+  Input,
+  Icon,
+  Button,
+  Text
+} from 'native-base';
 import { NavigationActions } from 'react-navigation';
 import Spotify from 'react-native-spotify';
 
@@ -32,6 +41,7 @@ export class PlayerScreen extends Component {
         Alert.alert('Error Sending getMe request', error.message);
       } else {
         this.setState(state => {
+          debugger;
           state.spotifyUserName = result.display_name;
           return state;
         });
@@ -59,19 +69,33 @@ export class PlayerScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        {this.state.spotifyUserName != null ? (
-          <Text style={styles.greeting}>
-            You are logged in as {this.state.spotifyUserName}
-          </Text>
-        ) : (
-          <Text style={styles.greeting}>Getting user info...</Text>
-        )}
-        <TouchableHighlight onPress={this.spotifyLogoutButtonWasPressed}>
-          <Text>Logout</Text>
-        </TouchableHighlight>
-      </View>
+      <Container>
+        <Header searchBar rounded>
+          <Item>
+            <Icon name="ios-search" />
+            <Input placeholder="Search" />
+            <Icon name="ios-people" />
+          </Item>
+          <Button transparent>
+            <Text>Search</Text>
+          </Button>
+        </Header>
+      </Container>
     );
+    // return (
+    //   <View style={styles.container}>
+    //     {this.state.spotifyUserName != null ? (
+    //       <Text style={styles.greeting}>
+    //         You are logged in as {this.state.spotifyUserName}
+    //       </Text>
+    //     ) : (
+    //       <Text style={styles.greeting}>Getting user info...</Text>
+    //     )}
+    //     <TouchableHighlight onPress={this.spotifyLogoutButtonWasPressed}>
+    //       <Text>Logout</Text>
+    //     </TouchableHighlight>
+    //   </View>
+    // );
   }
 }
 

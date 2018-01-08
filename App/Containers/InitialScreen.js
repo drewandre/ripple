@@ -57,7 +57,6 @@ export class InitialScreen extends Component {
         });
         //handle initialization
         if (loggedIn) {
-          console.log('first good log in sign');
           this.goToPlayer();
         }
       });
@@ -69,7 +68,6 @@ export class InitialScreen extends Component {
       });
       //handle logged in
       if (Spotify.isLoggedIn()) {
-        console.log('second good log in sign');
         this.goToPlayer();
       }
     }
