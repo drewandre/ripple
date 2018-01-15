@@ -17,11 +17,8 @@ export default (App = StackNavigator(
 ));
 
 App.handleOpenURL = event => {
-  if (Spotify.handleAuthURL(event.url)) {
-    console.log('Apps Spotify.handleAuthURL was a success');
-    return true;
-  }
-  console.log('Apps Spotify.handleAuthURL was NOT a success');
-  return false;
+  Spotify.handleAuthURLAsync(event.url, handled => {
+    return handled;
+  });
 };
 Linking.addEventListener('url', App.handleOpenURL);

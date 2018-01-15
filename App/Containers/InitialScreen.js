@@ -32,45 +32,42 @@ export class InitialScreen extends Component {
     this.props.navigation.dispatch(navAction);
   }
 
-  componentDidMount() {
-    if (!Spotify.isInitialized()) {
-      //initialize spotify
-      var spotifyOptions = {
-        clientID: '08652068ed8d4c72a4e527ef1abcf944',
-        sessionUserDefaultsKey: 'SpotifySession',
-        redirectURL: 'spotify-auth://callback',
-        scopes: [
-          'user-read-private',
-          'playlist-read',
-          'playlist-read-private',
-          'streaming'
-        ]
-      };
-      Spotify.initialize(spotifyOptions, (loggedIn, error) => {
-        if (error != null) {
-          Alert.alert('Error', error.message);
-        }
-        //update UI state
-        this.setState(state => {
-          state.spotifyInitialized = true;
-          return state;
+  initializeSpotify() {
+    var spotifyOptions = {
+      clientID: '08652068ed8d4c72a4e527ef1abcf944',
+      sessionUserDefaultsKey: 'SpotifySession',
+      redirectURL: 'spotify-auth://callback',
+      scopes: [
+        'user-read-private',
+        'playlist-read',
+        'playlist-read-private',
+        'streaming'
+      ]
+    };
+    Spotify.isInitializedAsync(initialized => {
+      if (initialized === false) {
+        Spotify.initialize(spotifyOptions, (loggedIn, error) => {
+          if (error != null) {
+            Alert.alert('Error', error.message);
+          }
+          this.setState({ spotifyInitialized: true });
+          if (loggedIn) {
+            this.goToPlayer();
+          }
         });
-        //handle initialization
-        if (loggedIn) {
-          this.goToPlayer();
-        }
-      });
-    } else {
-      //update UI state
-      this.setState(state => {
-        state.spotifyInitialized = true;
-        return state;
-      });
-      //handle logged in
-      if (Spotify.isLoggedIn()) {
-        this.goToPlayer();
+      } else {
+        this.setState({ spotifyInitialized: true });
+        Spotify.isLoggedInAsync(loggedIn => {
+          if (loggedIn) {
+            this.goToPlayer();
+          }
+        });
       }
-    }
+    });
+  }
+
+  componentDidMount() {
+    this.initializeSpotify();
   }
 
   spotifyLoginButtonWasPressed() {
@@ -139,7 +136,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white'
   },
-
   greeting: {
     fontSize: 20,
     textAlign: 'center',

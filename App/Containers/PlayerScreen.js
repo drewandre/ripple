@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Alert,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 import {
   Container,
   Header,
@@ -18,36 +12,61 @@ import {
 import { NavigationActions } from 'react-navigation';
 import Spotify from 'react-native-spotify';
 
+import SearchBar from './SearchBar';
+
 export class PlayerScreen extends Component {
   static navigationOptions = {
-    title: 'Player'
+    header: null
   };
 
   constructor() {
     super();
 
-    this.state = { spotifyUserName: null };
+    this.state = {
+      spotifyUserName: null
+      // searchQuery: ''
+    };
 
     this.spotifyLogoutButtonWasPressed = this.spotifyLogoutButtonWasPressed.bind(
       this
     );
+    // this.handleSpotifySearch = this.handleSpotifySearch.bind(this);
   }
 
   componentDidMount() {
-    console.log('sending getMe request');
+    // console.log('sending getMe request');
     Spotify.getMe((result, error) => {
-      console.log('got getMe result');
+      // console.log('got getMe result');
       if (error) {
-        Alert.alert('Error Sending getMe request', error.message);
+        // Alert.alert('Error Sending getMe request', error.message);
       } else {
         this.setState(state => {
-          debugger;
           state.spotifyUserName = result.display_name;
           return state;
         });
       }
     });
   }
+
+  // handleSpotifySearch(query) {
+  //   // console.log(query);
+  //   let options = {};
+  //   Spotify.search(
+  //     query,
+  //     ['album', 'artist', 'playlist', 'track'],
+  //     options,
+  //     (result, error) => {
+  //       if (error) {
+  //         console.log('could not complete search');
+  //       }
+  //       if (result) {
+  //         console.log(result);
+  //         // console.log('search successful');
+  //         // this.setState({ searchQuery: result });
+  //       }
+  //     }
+  //   );
+  // }
 
   goToInitialScreen() {
     const navAction = NavigationActions.reset({
@@ -60,7 +79,7 @@ export class PlayerScreen extends Component {
   spotifyLogoutButtonWasPressed() {
     Spotify.logout(error => {
       if (error) {
-        Alert.alert('Error', error.message);
+        // Alert.alert('Error', error.message);
       } else {
         this.goToInitialScreen();
       }
@@ -70,16 +89,7 @@ export class PlayerScreen extends Component {
   render() {
     return (
       <Container>
-        <Header searchBar rounded>
-          <Item>
-            <Icon name="ios-search" />
-            <Input placeholder="Search" />
-            <Icon name="ios-people" />
-          </Item>
-          <Button transparent>
-            <Text>Search</Text>
-          </Button>
-        </Header>
+        <SearchBar />
       </Container>
     );
     // return (
@@ -110,5 +120,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10
+  },
+  playerHeader: {
+    // backgroundColor: 'blue'
+  },
+  searchResults: {
+    // position: 'relative',
+    // height: 'fit-content',
+    backgroundColor: 'grey'
   }
 });
