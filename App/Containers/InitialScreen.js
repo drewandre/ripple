@@ -9,19 +9,13 @@ import {
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import Spotify from 'react-native-spotify';
+import { Colors, Fonts } from '../Themes';
 
 export class InitialScreen extends Component {
-  static navigationOptions = {
-    header: null
-  };
-
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = { spotifyInitialized: false };
-    this.spotifyLoginButtonWasPressed = this.spotifyLoginButtonWasPressed.bind(
-      this
-    );
+    this.goToPlayer = this.goToPlayer.bind(this);
   }
 
   goToPlayer() {
@@ -38,10 +32,24 @@ export class InitialScreen extends Component {
       sessionUserDefaultsKey: 'SpotifySession',
       redirectURL: 'spotify-auth://callback',
       scopes: [
-        'user-read-private',
-        'playlist-read',
         'playlist-read-private',
-        'streaming'
+        'playlist-read-collaborative',
+        'playlist-modify-public',
+        'playlist-modify-private',
+        'streaming',
+        'ugc-image-upload',
+        'user-follow-modify',
+        'user-follow-read',
+        'user-library-read',
+        'user-library-modify',
+        'user-read-private',
+        'user-read-birthdate',
+        'user-read-email',
+        'user-top-read',
+        'user-read-playback-state',
+        'user-modify-playback-state',
+        'user-read-currently-playing',
+        'user-read-recently-played'
       ]
     };
     Spotify.isInitializedAsync(initialized => {
@@ -86,7 +94,7 @@ export class InitialScreen extends Component {
       return (
         <View style={styles.container}>
           <ActivityIndicator animating={true} style={styles.loadIndicator} />
-          <Text style={styles.loadMessage}>Loading...</Text>
+          <Text style={styles.loadMessage}>Initializing Spotify</Text>
         </View>
       );
     } else {
@@ -113,9 +121,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF'
   },
 
-  loadIndicator: {
-    //
-  },
+  loadIndicator: {},
   loadMessage: {
     fontSize: 20,
     textAlign: 'center',

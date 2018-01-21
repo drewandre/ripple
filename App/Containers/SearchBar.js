@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import { Colors, Fonts } from '../Themes';
 import {
   Container,
   Header,
@@ -14,10 +15,6 @@ import Spotify from 'react-native-spotify';
 import SearchResultCategory from '../Components/SearchResults/SearchResultCategory';
 
 export default class SearchBar extends Component {
-  static navigationOptions = {
-    header: null
-  };
-
   constructor() {
     super();
     this.state = {
@@ -29,7 +26,7 @@ export default class SearchBar extends Component {
   }
 
   handleSearch(query) {
-    let options = { limit: '2' };
+    let options = { limit: '10' };
     Spotify.search(
       query,
       ['album', 'artist', 'playlist', 'track'],
@@ -66,7 +63,10 @@ export default class SearchBar extends Component {
     } else {
       var resultsState = this.state.searchResults;
       for (var category in resultsState) {
-        if (resultsState.hasOwnProperty(category)) {
+        if (
+          resultsState.hasOwnProperty(category) &&
+          resultsState[category].length > 0
+        ) {
           searchResultsCategoryObjectArray.push(
             <SearchResultCategory
               key={Date.now + Math.random() * 100}
@@ -80,36 +80,50 @@ export default class SearchBar extends Component {
     }
     return (
       <Container>
-        <Header searchBar rounded style={styles.playerHeader}>
+        <Header searchBar>
           <Button transparent>
-            <Icon name="ios-people" />
+            <Icon name="ios-people" style={styles.menuIcons} />
           </Button>
-          <Item>
-            <Icon name="ios-search" />
+          <Item style={styles.searchBarContainer}>
+            <Icon name="ios-search" style={styles.searchBarSearchIcon} />
             <Input
               placeholder="Search"
+              style={styles.searchBar}
               onChangeText={this.handleSearch}
               onFocus={this.retrieveRecentSearches}
             />
           </Item>
           <Button transparent>
-            <Icon name="ios-people" />
+            <Icon name="ios-people" style={styles.menuIcons} />
           </Button>
         </Header>
-        {searchResultsCategoryContainer}
+        <ScrollView>{searchResultsCategoryContainer}</ScrollView>
       </Container>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  searchBarContainer: {
+    marginLeft: 7,
+    marginRight: 7,
+    borderRadius: 3
+  },
+  searchBar: {
+    fontSize: 16,
+    borderRadius: 10
+  },
+  searchBarSearchIcon: { fontSize: 16, paddingRight: 1 },
+  menuIcons: {
+    color: Colors.menuBar,
+    marginLeft: 3,
+    marginRight: 3,
+    paddingLeft: 0
+  },
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF'
   },
-  searchResults: {
-    // backgroundColor: 'red'
-  }
+  searchResults: {}
 });

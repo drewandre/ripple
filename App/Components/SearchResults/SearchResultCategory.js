@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { Colors, Fonts } from '../../Themes';
+
 import { Container, Text } from 'native-base';
 
 import SearchResult from './SearchResult';
@@ -8,45 +10,54 @@ import SearchResult from './SearchResult';
 export default class SearchResultCategory extends Component {
   constructor(props) {
     super(props);
-    this.handlePress = this.handlePress.bind(this);
+    this.handleSearchResultPress = this.handleSearchResultPress.bind(this);
   }
 
-  static propTypes = {
-    categoryType: PropTypes.string.isRequired,
-    categoryItems: PropTypes.array.isRequired,
-    navigator: PropTypes.object
-  };
-
-  // componentWillMount() {}
-
-  // getText() {
-  //   const buttonText = this.props.text || this.props.children || '';
-  //   return buttonText.toUpperCase();
-  // }
-
-  handlePress(event) {
-    console.log('pressed from SearchResultCategory!');
+  handleSearchResultPress(event) {
+    Spotify.playURI(event.uri, 0, 0, error => {
+      if (error) {
+        console.log(error);
+      }
+    });
   }
 
   render() {
     var searchResultsObjects = this.props.categoryItems.map(item => {
       return (
-        <SearchResult key={item.id} item={item} onPress={this.handlePress} />
+        <SearchResult
+          key={item.id}
+          item={item}
+          onPress={this.handleSearchResultPress}
+        />
       );
     });
     return (
-      <Container style={styles.categoryContainer}>
+      <ScrollView style={styles.categoryContainer}>
+        <Text style={styles.categoryContainerTitle}>
+          {this.props.categoryType}
+        </Text>
         {searchResultsObjects}
-      </Container>
+      </ScrollView>
     );
   }
 }
 
+SearchResultCategory.propTypes = {
+  categoryType: PropTypes.string.isRequired,
+  categoryItems: PropTypes.array.isRequired,
+  navigator: PropTypes.object
+};
+
 const styles = StyleSheet.create({
-  categoryContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
+  categoryContainerTitle: {
+    ...Fonts.style.h5,
     margin: 10,
-    backgroundColor: '#292929'
+    color: Colors.steel
+  },
+  categoryContainer: {
+    borderRadius: 4,
+    margin: 10,
+    backgroundColor: Colors.windowTint,
+    flex: 1
   }
 });
