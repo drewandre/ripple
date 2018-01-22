@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
-import { Alert, Linking, Platform, StyleSheet, Text, View } from 'react-native';
+import { Linking, Platform } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Spotify from 'react-native-spotify';
 
-var { InitialScreen } = require('./InitialScreen.js');
-var { PlayerScreen } = require('./PlayerScreen.js');
+import InitialScreen from './InitialScreen.js';
+import PlayerScreen from './PlayerScreen.js';
+import ProfilePage from './ProfilePage.js';
 
 export default (App = StackNavigator(
   {
-    initial: { screen: InitialScreen },
-    player: { screen: PlayerScreen }
+    initial: { screen: InitialScreen, headerMode: 'none', header: null },
+    player: { screen: PlayerScreen, headerMode: 'none' },
+    profile: { screen: ProfilePage, headerMode: 'none' }
   },
   {
-    headerMode: 'screen'
+    headerMode: 'none'
+    // mode: 'card'
   }
 ));
 
 App.handleOpenURL = event => {
-  if (Spotify.handleAuthURL(event.url)) {
-    console.log('Apps Spotify.handleAuthURL was a success');
-    return true;
-  }
-  console.log('Apps Spotify.handleAuthURL was NOT a success');
-  return false;
+  Spotify.handleAuthURLAsync(event.url, handled => {
+    return handled;
+  });
 };
 Linking.addEventListener('url', App.handleOpenURL);

@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
-import {
-  ActivityIndicator,
-  Alert,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from 'react-native';
+import { ActivityIndicator, Alert, StyleSheet, View } from 'react-native';
+import { Button, Text } from 'native-base';
+
 import { NavigationActions } from 'react-navigation';
 import Spotify from 'react-native-spotify';
+import { Colors, Fonts } from '../Themes';
 
-export class InitialScreen extends Component {
+export default class InitialScreen extends Component {
   static navigationOptions = {
     header: null
   };
 
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = { spotifyInitialized: false };
+    this.goToPlayer = this.goToPlayer.bind(this);
+    this.initializeSpotify = this.initializeSpotify.bind(this);
     this.spotifyLoginButtonWasPressed = this.spotifyLoginButtonWasPressed.bind(
       this
     );
@@ -32,47 +29,57 @@ export class InitialScreen extends Component {
     this.props.navigation.dispatch(navAction);
   }
 
-  componentDidMount() {
-    if (!Spotify.isInitialized()) {
-      //initialize spotify
-      var spotifyOptions = {
-        clientID: '08652068ed8d4c72a4e527ef1abcf944',
-        sessionUserDefaultsKey: 'SpotifySession',
-        redirectURL: 'spotify-auth://callback',
-        scopes: [
-          'user-read-private',
-          'playlist-read',
-          'playlist-read-private',
-          'streaming'
-        ]
-      };
-      Spotify.initialize(spotifyOptions, (loggedIn, error) => {
-        if (error != null) {
-          Alert.alert('Error', error.message);
-        }
-        //update UI state
-        this.setState(state => {
-          state.spotifyInitialized = true;
-          return state;
+  initializeSpotify() {
+    var spotifyOptions = {
+      clientID: '08652068ed8d4c72a4e527ef1abcf944',
+      sessionUserDefaultsKey: 'SpotifySession',
+      redirectURL: 'spotify-auth://callback',
+      scopes: [
+        'playlist-read-private',
+        'playlist-read-collaborative',
+        'playlist-modify-public',
+        'playlist-modify-private',
+        'streaming',
+        'ugc-image-upload',
+        'user-follow-modify',
+        'user-follow-read',
+        'user-library-read',
+        'user-library-modify',
+        'user-read-private',
+        'user-read-birthdate',
+        'user-read-email',
+        'user-top-read',
+        'user-read-playback-state',
+        'user-modify-playback-state',
+        'user-read-currently-playing',
+        'user-read-recently-played'
+      ]
+    };
+
+    Spotify.isInitializedAsync(initialized => {
+      if (initialized === false) {
+        Spotify.initialize(spotifyOptions, (loggedIn, error) => {
+          this.setState({ spotifyInitialized: true });
+          if (error != null) {
+            Alert.alert('Error', error.message);
+          }
+          if (loggedIn) {
+            this.goToPlayer();
+          }
         });
-        //handle initialization
-        if (loggedIn) {
-          console.log('first good log in sign');
-          this.goToPlayer();
-        }
-      });
-    } else {
-      //update UI state
-      this.setState(state => {
-        state.spotifyInitialized = true;
-        return state;
-      });
-      //handle logged in
-      if (Spotify.isLoggedIn()) {
-        console.log('second good log in sign');
-        this.goToPlayer();
+      } else {
+        this.setState({ spotifyInitialized: true });
+        Spotify.isLoggedInAsync(loggedIn => {
+          if (loggedIn) {
+            this.goToPlayer();
+          }
+        });
       }
-    }
+    });
+  }
+
+  componentWillMount() {
+    this.initializeSpotify();
   }
 
   spotifyLoginButtonWasPressed() {
@@ -91,19 +98,21 @@ export class InitialScreen extends Component {
       return (
         <View style={styles.container}>
           <ActivityIndicator animating={true} style={styles.loadIndicator} />
-          <Text style={styles.loadMessage}>Loading...</Text>
+          <Text style={styles.loadMessage}>Initializing Spotify</Text>
         </View>
       );
     } else {
       return (
         <View style={styles.container}>
           <Text style={styles.greeting}>Ripple</Text>
-          <TouchableHighlight
+          <Button
+            full
+            block
             onPress={this.spotifyLoginButtonWasPressed}
             style={styles.spotifyLoginButton}
           >
             <Text style={styles.spotifyLoginButtonText}>Log into Spotify</Text>
-          </TouchableHighlight>
+          </Button>
         </View>
       );
     }
@@ -112,15 +121,16 @@ export class InitialScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
+    // position: 'absolute',
+    // top: 0,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    alignItems: 'center'
+    // backgroundColor: '#F5FCFF',
+    // backgroundColor: 'purple'
   },
 
-  loadIndicator: {
-    //
-  },
+  loadIndicator: {},
   loadMessage: {
     fontSize: 20,
     textAlign: 'center',
@@ -129,19 +139,13 @@ const styles = StyleSheet.create({
 
   spotifyLoginButton: {
     justifyContent: 'center',
-    borderRadius: 18,
-    backgroundColor: 'green',
-    overflow: 'hidden',
-    width: 200,
-    height: 40,
-    margin: 20
+    backgroundColor: 'green'
   },
   spotifyLoginButtonText: {
     fontSize: 20,
     textAlign: 'center',
     color: 'white'
   },
-
   greeting: {
     fontSize: 20,
     textAlign: 'center',
