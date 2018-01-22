@@ -49,7 +49,10 @@ export default class SearchBar extends Component {
         }
         if (Object.keys(organizedResults).length === 0) {
           searchResultsCategoryObjectArray.push(
-            <ScrollView style={styles.searchResults}>
+            <ScrollView
+              key={Date.now + Math.random() * 100}
+              style={styles.searchResults}
+            >
               <Text>~~~ Recent searches here ~~~</Text>
             </ScrollView>
           );
@@ -59,9 +62,11 @@ export default class SearchBar extends Component {
               organizedResults.hasOwnProperty(category) &&
               organizedResults[category].length > 0
             ) {
+              var key = Date.now() + Math.random() * 100;
               searchResultsCategoryObjectArray.push(
                 <SearchResultCategory
-                  key={Date.now + Math.random() * 100}
+                  key={key}
+                  id={key}
                   categoryType={category}
                   categoryItems={organizedResults[category]}
                 />

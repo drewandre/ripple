@@ -36,6 +36,7 @@ export default class SearchResult extends Component {
   render() {
     return (
       <TouchableOpacity
+        key={this.props.id}
         style={styles.searchResultContainer}
         onPress={this.handlePress}
       >
@@ -56,19 +57,19 @@ SearchResult.propTypes = {
 
 const styles = StyleSheet.create({
   searchResultContainer: {
-    borderRadius: 4,
-    margin: 5,
-    backgroundColor: Colors.windowTint,
-    flex: 1
+    borderRadius: 2,
+    margin: 2,
+    backgroundColor: Colors.instagramMenuBar
+    // flex: 1
   },
   searchResultTextTitle: {
     ...Fonts.style.input,
     margin: 2,
-    color: Colors.silver
+    color: '#000'
   },
   searchResultTextSubtitle: {
     ...Fonts.style.medium,
     margin: 2,
-    color: Colors.steel
+    color: '#000'
   }
 });

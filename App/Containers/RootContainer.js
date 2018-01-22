@@ -59,17 +59,13 @@ class RootContainer extends Component {
           showSearchContainer={this.state.showSearchContainer}
         />
         <Content>
-          {this.state.searchResults ? (
+          {this.state.searchResults.length > 1 ? (
             <ScrollView style={tempStyles.searchResultsContainer}>
               {this.state.searchResults}
             </ScrollView>
-          ) : null}
-          {/* <BlurView
-            style={tempStyles.absolute}
-            blurType="light"
-            blurAmount={10}
-          /> */}
-          <ReduxNavigation />
+          ) : (
+            <ReduxNavigation />
+          )}
         </Content>
         <FooterNavigation />
       </Container>
@@ -107,13 +103,13 @@ const tempStyles = StyleSheet.create({
     backgroundColor: '#F5FCFF'
   },
   searchResultsContainer: {
-    flex: 1,
-    position: 'absolute',
-    zIndex: 999,
-    left: 0,
-    top: 0,
-    opacity: 0.5,
-    backgroundColor: 'black',
+    // flex: 1,
+    // position: 'absolute',
+    // zIndex: 999,
+    // left: 0,
+    // top: 0,
+    // opacity: 0.5,
+    // backgroundColor: 'black',
     width: Metrics.screenWidth
   }
 });
