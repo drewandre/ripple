@@ -12,7 +12,7 @@ import {
 import { NavigationActions } from 'react-navigation';
 import Spotify from 'react-native-spotify';
 
-export class ProfilePage extends Component {
+export default class ProfilePage extends Component {
   constructor(props) {
     super(props);
 

@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableHighlight, Alert } from 'react-native';
+import {
+  StyleSheet,
+  TouchableHighlight,
+  TouchableOpacity,
+  Alert,
+  View,
+  Platform
+} from 'react-native';
 import {
   Container,
   Header,
@@ -9,26 +16,24 @@ import {
   Button,
   Text
 } from 'native-base';
+import { Colors, Fonts } from '../Themes';
 import { NavigationActions } from 'react-navigation';
 import Spotify from 'react-native-spotify';
 
-import SearchBar from './SearchBar';
+import styles from '../Navigation/Styles/NavigationStyles';
 
-export class PlayerScreen extends Component {
-  // static navigationOptions = ({ navigation, screenProps }) => ({
-  //   header: (
-  //     <SearchBar
-  //     // onNext={() => {
-  //     //   emitter.emit('next');
-  //     // }}
-  //     />
-  //   )
-  // });
+import SearchBar from './SearchBar';
+import FooterNavigation from './FooterNavigation';
+
+export default class PlayerScreen extends Component {
+  static navigationOptions = {
+    header: null,
+    headerMode: 'none'
+  };
 
   constructor(props) {
     super(props);
     this.state = { spotifyUser: null };
-    this.goToProfilePage = this.goToProfilePage.bind(this);
   }
 
   componentDidMount() {
@@ -44,40 +49,30 @@ export class PlayerScreen extends Component {
     });
   }
 
-  goToProfilePage() {
-    const navAction = NavigationActions.reset({
-      index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'profile' })]
-    });
-    this.props.navigation.dispatch(navAction);
-  }
-
   render() {
     return (
-      <Container>
-        <Button full success onPress={this.goToProfilePage}>
-          <Text>Go to profile</Text>
-        </Button>
-        <SearchBar />
+      <Container style={{ position: 'absolute', top: 0, flex: 1 }}>
+        <Text>Hi from PlayerScreen.js</Text>
+        {/* <FooterNavigation goToProfilePage={this.goToProfilePage} /> */}
       </Container>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  greeting: {
-    fontSize: 20,
-    textAlign: 'center'
-    // margin: 10
-    // color: 'green'
-  },
-  playerHeader: {},
-  searchResults: {
-    backgroundColor: 'grey'
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#F5FCFF'
+//   },
+//   greeting: {
+//     fontSize: 20,
+//     textAlign: 'center'
+//     // margin: 10
+//     // color: 'green'
+//   },
+//   playerHeader: {},
+//   searchResults: {
+//     backgroundColor: 'grey'
+//   }
+// });

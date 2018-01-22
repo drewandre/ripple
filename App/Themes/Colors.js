@@ -1,4 +1,5 @@
 const colors = {
+  instagramMenuBar: '#FAFAFA',
   background: '#1F0808',
   menuBar: '#262626',
   clear: 'rgba(0,0,0,0)',

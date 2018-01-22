@@ -3,18 +3,19 @@ import { Linking, Platform } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Spotify from 'react-native-spotify';
 
-var { InitialScreen } = require('./InitialScreen.js');
-var { PlayerScreen } = require('./PlayerScreen.js');
-var { ProfilePage } = require('./ProfilePage.js');
+import InitialScreen from './InitialScreen.js';
+import PlayerScreen from './PlayerScreen.js';
+import ProfilePage from './ProfilePage.js';
 
 export default (App = StackNavigator(
   {
-    initial: { screen: InitialScreen },
-    player: { screen: PlayerScreen },
-    profile: { screen: ProfilePage }
+    initial: { screen: InitialScreen, headerMode: 'none', header: null },
+    player: { screen: PlayerScreen, headerMode: 'none' },
+    profile: { screen: ProfilePage, headerMode: 'none' }
   },
   {
     headerMode: 'none'
+    // mode: 'card'
   }
 ));
 

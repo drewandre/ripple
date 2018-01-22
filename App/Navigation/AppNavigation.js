@@ -11,15 +11,29 @@ import styles from './Styles/NavigationStyles';
 
 // Manifest of possible screens
 const PrimaryNav = StackNavigator(
-  { LaunchScreen: { screen: LaunchScreen, statusBarHidden: true } },
-  { InitialScreen: { screen: InitialScreen } },
-  { PlayerScreen: { screen: PlayerScreen } },
-  { ProfilePage: { screen: ProfilePage } },
   {
-    // Default config for all screens
-    // header: <SearchBar />,
-    headerMode: 'float',
-    // mode: 'card',
+    LaunchScreen: {
+      screen: LaunchScreen
+    }
+  },
+  {
+    InitialScreen: {
+      screen: InitialScreen
+    }
+  },
+  {
+    PlayerScreen: {
+      screen: PlayerScreen
+    }
+  },
+  {
+    ProfilePage: {
+      screen: ProfilePage
+    }
+  },
+  {
+    //   // Default config for all screens
+    headerMode: 'none',
     initialRouteName: 'LaunchScreen',
     navigationOptions: {
       headerStyle: styles.header

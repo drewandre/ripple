@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
-import {
-  ActivityIndicator,
-  Alert,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from 'react-native';
+import { ActivityIndicator, Alert, StyleSheet, View } from 'react-native';
+import { Button, Text } from 'native-base';
+
 import { NavigationActions } from 'react-navigation';
 import Spotify from 'react-native-spotify';
 import { Colors, Fonts } from '../Themes';
 
-export class InitialScreen extends Component {
+export default class InitialScreen extends Component {
+  static navigationOptions = {
+    header: null
+  };
+
   constructor(props) {
     super(props);
     this.state = { spotifyInitialized: false };
     this.goToPlayer = this.goToPlayer.bind(this);
+    this.initializeSpotify = this.initializeSpotify.bind(this);
+    this.spotifyLoginButtonWasPressed = this.spotifyLoginButtonWasPressed.bind(
+      this
+    );
   }
 
   goToPlayer() {
@@ -52,13 +55,14 @@ export class InitialScreen extends Component {
         'user-read-recently-played'
       ]
     };
+
     Spotify.isInitializedAsync(initialized => {
       if (initialized === false) {
         Spotify.initialize(spotifyOptions, (loggedIn, error) => {
+          this.setState({ spotifyInitialized: true });
           if (error != null) {
             Alert.alert('Error', error.message);
           }
-          this.setState({ spotifyInitialized: true });
           if (loggedIn) {
             this.goToPlayer();
           }
@@ -74,7 +78,7 @@ export class InitialScreen extends Component {
     });
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.initializeSpotify();
   }
 
@@ -101,12 +105,14 @@ export class InitialScreen extends Component {
       return (
         <View style={styles.container}>
           <Text style={styles.greeting}>Ripple</Text>
-          <TouchableHighlight
+          <Button
+            full
+            block
             onPress={this.spotifyLoginButtonWasPressed}
             style={styles.spotifyLoginButton}
           >
             <Text style={styles.spotifyLoginButtonText}>Log into Spotify</Text>
-          </TouchableHighlight>
+          </Button>
         </View>
       );
     }
@@ -115,10 +121,13 @@ export class InitialScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
+    // position: 'absolute',
+    // top: 0,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    alignItems: 'center'
+    // backgroundColor: '#F5FCFF',
+    // backgroundColor: 'purple'
   },
 
   loadIndicator: {},
@@ -130,12 +139,7 @@ const styles = StyleSheet.create({
 
   spotifyLoginButton: {
     justifyContent: 'center',
-    borderRadius: 18,
-    backgroundColor: 'green',
-    overflow: 'hidden',
-    width: 200,
-    height: 40,
-    margin: 20
+    backgroundColor: 'green'
   },
   spotifyLoginButtonText: {
     fontSize: 20,
