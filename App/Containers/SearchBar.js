@@ -19,10 +19,6 @@ import SearchResultCategory from '../Components/SearchResults/SearchResultCatego
 export default class SearchBar extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   searchResults: {},
-    //   showRecentSearches: false
-    // };
     this.handleSearch = this.handleSearch.bind(this);
     this.retrieveRecentSearches = this.retrieveRecentSearches.bind(this);
     this.unmountSearchResults = this.unmountSearchResults.bind(this);
@@ -38,7 +34,6 @@ export default class SearchBar extends Component {
       options,
       (result, error) => {
         if (error) {
-          // console.log('error in search: ' + error);
         } else {
           organizedResults = {
             tracks: result.tracks.items,
@@ -49,7 +44,10 @@ export default class SearchBar extends Component {
         }
         if (Object.keys(organizedResults).length === 0) {
           searchResultsCategoryObjectArray.push(
-            <ScrollView style={styles.searchResults}>
+            <ScrollView
+              key={Date.now + Math.random() * 100}
+              style={styles.searchResults}
+            >
               <Text>~~~ Recent searches here ~~~</Text>
             </ScrollView>
           );
@@ -59,9 +57,11 @@ export default class SearchBar extends Component {
               organizedResults.hasOwnProperty(category) &&
               organizedResults[category].length > 0
             ) {
+              var key = Date.now() + Math.random() * 100;
               searchResultsCategoryObjectArray.push(
                 <SearchResultCategory
-                  key={Date.now + Math.random() * 100}
+                  key={key}
+                  id={key}
                   categoryType={category}
                   categoryItems={organizedResults[category]}
                 />
@@ -76,7 +76,6 @@ export default class SearchBar extends Component {
 
   retrieveRecentSearches() {
     console.log('would retrieve recent rearches here');
-    // this.props.handleSearching();
   }
 
   unmountSearchResults() {
@@ -123,19 +122,5 @@ const styles = StyleSheet.create({
     marginLeft: 3,
     marginRight: 3,
     paddingLeft: 0
-  },
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  searchResultsContainer: {
-    flex: 1,
-    position: 'absolute',
-    left: 0,
-    top: 64,
-    opacity: 0.5,
-    backgroundColor: 'orange',
-    width: Metrics.screenWidth
   }
 });

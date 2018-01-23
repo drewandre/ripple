@@ -97,8 +97,8 @@ export default class InitialScreen extends Component {
     if (!this.state.spotifyInitialized) {
       return (
         <View style={styles.container}>
-          <ActivityIndicator animating={true} style={styles.loadIndicator} />
-          <Text style={styles.loadMessage}>Initializing Spotify</Text>
+          {/* <ActivityIndicator animating={true} style={styles.loadIndicator} /> */}
+          {/* <Text style={styles.loadMessage}>Initializing Spotify</Text> */}
         </View>
       );
     } else {
@@ -121,13 +121,8 @@ export default class InitialScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // position: 'absolute',
-    // top: 0,
     justifyContent: 'center',
     alignItems: 'center'
-    // backgroundColor: '#F5FCFF',
-    // backgroundColor: 'purple'
   },
 
   loadIndicator: {},

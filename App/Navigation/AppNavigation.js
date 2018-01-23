@@ -4,10 +4,10 @@ import LaunchScreen from '../Containers/LaunchScreen';
 import InitialScreen from '../Containers/InitialScreen';
 import PlayerScreen from '../Containers/PlayerScreen';
 import ProfilePage from '../Containers/ProfilePage';
+import Newsfeed from '../Containers/Newsfeed';
+import Discover from '../Containers/Discover';
 
 import styles from './Styles/NavigationStyles';
-
-// import SearchBar from '../Containers/SearchBar';
 
 // Manifest of possible screens
 const PrimaryNav = StackNavigator(
@@ -19,6 +19,16 @@ const PrimaryNav = StackNavigator(
   {
     InitialScreen: {
       screen: InitialScreen
+    }
+  },
+  {
+    Newsfeed: {
+      screen: Newsfeed
+    }
+  },
+  {
+    Discover: {
+      screen: Discover
     }
   },
   {

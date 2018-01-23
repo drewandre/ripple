@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { TouchableOpacity, StyleSheet, ScrollView, View } from 'react-native';
 import { Colors, Fonts } from '../../Themes';
 
 import { Container, Text } from 'native-base';
@@ -26,18 +26,19 @@ export default class SearchResultCategory extends Component {
       return (
         <SearchResult
           key={item.id}
+          id={item.id}
           item={item}
           onPress={this.handleSearchResultPress}
         />
       );
     });
     return (
-      <ScrollView style={styles.categoryContainer}>
+      <View style={styles.categoryContainer}>
         <Text style={styles.categoryContainerTitle}>
           {this.props.categoryType}
         </Text>
         {searchResultsObjects}
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -50,19 +51,12 @@ SearchResultCategory.propTypes = {
 
 const styles = StyleSheet.create({
   categoryContainerTitle: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     ...Fonts.style.h5,
-    margin: 10,
     textAlign: 'center',
-    color: Colors.steel
+    color: '#000'
   },
   categoryContainer: {
-    // borderRadius: 4,
-    // margin: 10,
-    backgroundColor: Colors.windowTint,
-    // backgroundColor: 'red',
-    flex: 1
+    borderRadius: 4,
+    margin: 5
   }
 });
