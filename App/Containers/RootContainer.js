@@ -60,9 +60,7 @@ class RootContainer extends Component {
         />
         <Content>
           {this.state.searchResults.length > 1 ? (
-            <ScrollView style={tempStyles.searchResultsContainer}>
-              {this.state.searchResults}
-            </ScrollView>
+            <ScrollView>{this.state.searchResults}</ScrollView>
           ) : (
             <ReduxNavigation />
           )}
@@ -74,18 +72,6 @@ class RootContainer extends Component {
 }
 
 const tempStyles = StyleSheet.create({
-  absolute: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0
-  },
-  searchBarContainer: {
-    marginLeft: 7,
-    marginRight: 7,
-    borderRadius: 3
-  },
   searchBar: {
     fontSize: 16,
     borderRadius: 10
@@ -96,21 +82,6 @@ const tempStyles = StyleSheet.create({
     marginLeft: 3,
     marginRight: 3,
     paddingLeft: 0
-  },
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  searchResultsContainer: {
-    // flex: 1,
-    // position: 'absolute',
-    // zIndex: 999,
-    // left: 0,
-    // top: 0,
-    // opacity: 0.5,
-    // backgroundColor: 'black',
-    width: Metrics.screenWidth
   }
 });
 

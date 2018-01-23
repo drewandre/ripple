@@ -51,19 +51,12 @@ SearchResultCategory.propTypes = {
 
 const styles = StyleSheet.create({
   categoryContainerTitle: {
-    // flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
     ...Fonts.style.h5,
-    // margin: 10,
     textAlign: 'center',
     color: '#000'
   },
   categoryContainer: {
     borderRadius: 4,
     margin: 5
-    // backgroundColor: Colors.windowTint
-    // backgroundColor: 'red',
-    // flex: 1
   }
 });

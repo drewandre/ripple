@@ -13,6 +13,11 @@ import { NavigationActions } from 'react-navigation';
 import Spotify from 'react-native-spotify';
 
 export default class ProfilePage extends Component {
+  static navigationOptions = {
+    header: null,
+    headerMode: 'none'
+  };
+
   constructor(props) {
     super(props);
 
@@ -24,7 +29,6 @@ export default class ProfilePage extends Component {
       this
     );
     this.goToPlayerPage = this.goToPlayerPage.bind(this);
-    this.goToInitialScreen = this.goToInitialScreen.bind(this);
   }
 
   componentDidMount() {
@@ -48,14 +52,6 @@ export default class ProfilePage extends Component {
     this.props.navigation.dispatch(navAction);
   }
 
-  goToInitialScreen() {
-    const navAction = NavigationActions.reset({
-      index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'initial' })]
-    });
-    this.props.navigation.dispatch(navAction);
-  }
-
   spotifyLogoutButtonWasPressed() {
     Spotify.logout(error => {
       if (error) {
@@ -69,9 +65,6 @@ export default class ProfilePage extends Component {
   render() {
     return (
       <View>
-        <Button block success onPress={this.goToPlayerPage}>
-          <Text>Home</Text>
-        </Button>
         <Button block info onPress={this.spotifyLogoutButtonWasPressed}>
           <Text>Log out</Text>
         </Button>

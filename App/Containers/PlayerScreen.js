@@ -22,9 +22,6 @@ import Spotify from 'react-native-spotify';
 
 import styles from '../Navigation/Styles/NavigationStyles';
 
-import SearchBar from './SearchBar';
-import FooterNavigation from './FooterNavigation';
-
 export default class PlayerScreen extends Component {
   static navigationOptions = {
     header: null,
@@ -51,28 +48,9 @@ export default class PlayerScreen extends Component {
 
   render() {
     return (
-      <Container style={{ position: 'absolute', top: 0, flex: 1 }}>
-        <Text>Hi from PlayerScreen.js</Text>
-        {/* <FooterNavigation goToProfilePage={this.goToProfilePage} /> */}
-      </Container>
+      <View>
+        <Text>Hello from PlayerScreen.js</Text>
+      </View>
     );
   }
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF'
-//   },
-//   greeting: {
-//     fontSize: 20,
-//     textAlign: 'center'
-//     // margin: 10
-//     // color: 'green'
-//   },
-//   playerHeader: {},
-//   searchResults: {
-//     backgroundColor: 'grey'
-//   }
-// });

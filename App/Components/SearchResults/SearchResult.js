@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     margin: 2,
     backgroundColor: Colors.instagramMenuBar
-    // flex: 1
   },
   searchResultTextTitle: {
     ...Fonts.style.input,
