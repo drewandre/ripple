@@ -97,6 +97,11 @@ export default class SearchBar extends Component {
             onFocus={this.retrieveRecentSearches}
             onBlur={this.unmountSearchResults}
           />
+          <Icon
+            name="ios-search"
+            style={styles.searchBarClearIcon}
+            onPress={this.props.handleClearSearch}
+          />
         </Item>
         <Button transparent>
           <Icon name="ios-people" style={styles.menuIcons} />
@@ -117,6 +122,7 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   searchBarSearchIcon: { fontSize: 16, paddingRight: 1 },
+  searchBarClearIcon: { fontSize: 16, paddingRight: 1 },
   menuIcons: {
     color: Colors.menuBar,
     marginLeft: 3,

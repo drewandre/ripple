@@ -34,6 +34,7 @@ class RootContainer extends Component {
     };
     this.handleSearching = this.handleSearching.bind(this);
     this.passSearchResults = this.passSearchResults.bind(this);
+    this.handleClearSearch = this.handleClearSearch.bind(this);
   }
   componentDidMount() {
     // if redux persist is not active fire startup action
@@ -49,11 +50,16 @@ class RootContainer extends Component {
     this.setState({ searchResults: searchResults });
   }
 
+  handleClearSearch(event) {
+    this.setState({ searchResults: [] });
+  }
+
   render() {
     return (
       <Container style={styles.applicationView}>
         <StatusBar barStyle="light-content" />
         <SearchBar
+          handleClearSearch={this.handleClearSearch}
           passSearchResults={this.passSearchResults}
           handleSearching={this.handleSearching}
           showSearchContainer={this.state.showSearchContainer}
