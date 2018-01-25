@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -13,6 +14,7 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* _spotifyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* _spotifyTests.m */; };
 		034E82B030344DE390C1FC48 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A582234ED70D4E1285680087 /* Roboto_medium.ttf */; };
+		0A20EDA74A3547630946C2B8 /* libPods-_spotify-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F19EF264A02D7AEDD13D7B5 /* libPods-_spotify-tvOSTests.a */; };
 		1320205CBEB04D498BEC20FC /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E9218A761CA4B4AB62BCE53 /* SimpleLineIcons.ttf */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
@@ -23,6 +25,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		1C239907943F6FF102E97A2A /* libPods-_spotify-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D40C514883EDFF864BCFA1D /* libPods-_spotify-tvOS.a */; };
 		2009602DBC204B34A8308D24 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5D2A265F104C0BBB628061 /* libReactNativeConfig.a */; };
 		2767C6A556BD4B559549285A /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBFFD45C2D4AD5ADCDF560 /* Foundation.ttf */; };
 		2AA94F377B9A4AC18829E343 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC03963F1EF4E578D12A324 /* rubicon-icon-font.ttf */; };
@@ -39,6 +42,7 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* _spotifyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* _spotifyTests.m */; };
+		32AFE2F4201A707E00E76B75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32AFE2C9201A707E00E76B75 /* GoogleService-Info.plist */; };
 		441E6A8F3A074633818E80D6 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA63D33BFF6D44B590459928 /* Roboto.ttf */; };
 		48124023119C4BFA9E2320BC /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E798806343E43339B484E65 /* libyoga.a */; };
 		4D8B7EEC1D1E4563ABA26148 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9C11E75333D488887AF1527 /* Octicons.ttf */; };
@@ -58,12 +62,14 @@
 		989A7690378744D5920014B0 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D94F082D3E6146D095A3D322 /* Foundation.ttf */; };
 		9D7BCFCB71F340D4988F04F9 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B703DC3420447AF934A1F49 /* FontAwesome.ttf */; };
 		9F58EC3A4E5C4F63983AAAC9 /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACA2D0AC9DB46ABA5EE777D /* libcxxreact.a */; };
+		A2149B358F9A2474AE9DDD42 /* libPods-_spotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F150DA20347101E576C0E614 /* libPods-_spotify.a */; };
 		AAF76954EFB54CEEABE67DBC /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9B8D8512E4942C4A062474E /* Zocial.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B84BBEFC0B0E4F7596AE82B8 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E36FEA17A2634D6EBE163567 /* MaterialCommunityIcons.ttf */; };
 		C3948FB9B55A4652B7133779 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F329DDDCE28247DC8CBED0E6 /* MaterialIcons.ttf */; };
 		C860B34F7DF6470690C5897F /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70AD296C036C4C2BA3898ECD /* EvilIcons.ttf */; };
 		CDF930FFF26D46B188DEB2C3 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 907DF43C42D34B57AF6433F7 /* MaterialIcons.ttf */; };
+		D68ED8C811AF803148A31AA3 /* libPods-_spotifyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07269729E303411E02ABFEB9 /* libPods-_spotifyTests.a */; };
 		DCD71309F227473EA51B40E9 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7B29BCF618424982108D82 /* libRNDeviceInfo.a */; };
 		DCE25FD4D8114DE2A1D50751 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 360CA6B8439344A09640E03C /* Zocial.ttf */; };
 		E9EF6D05727A4ED29F97B1AB /* libRCTSpotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E05CAFD2E44DE198E89E22 /* libRCTSpotify.a */; };
@@ -414,8 +420,10 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* _spotifyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _spotifyTests.m; sourceTree = "<group>"; };
 		034A610B3AF34BEC8F802833 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		07269729E303411E02ABFEB9 /* libPods-_spotifyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-_spotifyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A50D23D058449CF878212FD /* RNBlur.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNBlur.xcodeproj; path = "../node_modules/react-native-blur/ios/RNBlur.xcodeproj"; sourceTree = "<group>"; };
 		10987276614E479B82F95FA5 /* libReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReact.a; sourceTree = "<group>"; };
+		111B0D0BBB75EEDF551954C5 /* Pods-_spotifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-_spotifyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-_spotifyTests/Pods-_spotifyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* _spotify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = _spotify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -431,7 +439,11 @@
 		2C5D2A265F104C0BBB628061 /* libReactNativeConfig.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeConfig.a; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* _spotify-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "_spotify-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* _spotify-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "_spotify-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D40C514883EDFF864BCFA1D /* libPods-_spotify-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-_spotify-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32AFE2C9201A707E00E76B75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "_spotify/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		360CA6B8439344A09640E03C /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		396620A99F9A4B78D63E5745 /* Pods-_spotifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-_spotifyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-_spotifyTests/Pods-_spotifyTests.release.xcconfig"; sourceTree = "<group>"; };
+		462DD4A07E0CB7BD2718ECBB /* Pods-_spotify-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-_spotify-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-_spotify-tvOS/Pods-_spotify-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		4D77D2732C5B470CBED5AC46 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 		5821CAF3426841E6A87BC78E /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		5AF092751D5446F59BBA9C21 /* RCTSpotify.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTSpotify.xcodeproj; path = "../node_modules/react-native-spotify/ios/RCTSpotify.xcodeproj"; sourceTree = "<group>"; };
@@ -446,19 +458,25 @@
 		6F9DE5604F8D4A0491397B31 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		70AD296C036C4C2BA3898ECD /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		75FCA4B9F3154CC2BEFF823B /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		78319E25980545CEAF2F8164 /* Pods-_spotify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-_spotify.release.xcconfig"; path = "Pods/Target Support Files/Pods-_spotify/Pods-_spotify.release.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7B703DC3420447AF934A1F49 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		7BDBFFD45C2D4AD5ADCDF560 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		7C0AC8F46D70890351A4678A /* Pods-_spotify-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-_spotify-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-_spotify-tvOS/Pods-_spotify-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8A028C02B51042338EF9C910 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		8A35A9A52BEC4B05AE54910A /* libRCTSpotify-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRCTSpotify-tvOS.a"; sourceTree = "<group>"; };
 		8E01AEB77F964A7284CA858C /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
 		907DF43C42D34B57AF6433F7 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		9CAAE7AB2E7344988EF43067 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
+		9F19EF264A02D7AEDD13D7B5 /* libPods-_spotify-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-_spotify-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2D8E99448020772D621B521 /* Pods-_spotify-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-_spotify-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-_spotify-tvOSTests/Pods-_spotify-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		A582234ED70D4E1285680087 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		B55DE06512DB73749A726CCA /* Pods-_spotify-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-_spotify-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-_spotify-tvOSTests/Pods-_spotify-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B5E05CAFD2E44DE198E89E22 /* libRCTSpotify.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTSpotify.a; sourceTree = "<group>"; };
 		B9B8D8512E4942C4A062474E /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		BBB246F8A266DD395F2B4298 /* Pods-_spotify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-_spotify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-_spotify/Pods-_spotify.debug.xcconfig"; sourceTree = "<group>"; };
 		BFE3B6027F25485D978008A4 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		C038311F41D042B6A2AA3091 /* libjschelpers.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libjschelpers.a; sourceTree = "<group>"; };
 		C9C11E75333D488887AF1527 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -466,6 +484,7 @@
 		DE7834F64D83435FBFE1945E /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		E36FEA17A2634D6EBE163567 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		E6F6FB92B40945518E905D6C /* libRNBlur.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNBlur.a; sourceTree = "<group>"; };
+		F150DA20347101E576C0E614 /* libPods-_spotify.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-_spotify.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F329DDDCE28247DC8CBED0E6 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		FA63D33BFF6D44B590459928 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
 		FB7B29BCF618424982108D82 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
@@ -479,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				D68ED8C811AF803148A31AA3 /* libPods-_spotifyTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +530,7 @@
 				6C2E09101FFEB08500D9538B /* SpotifyAuthentication.framework in Frameworks */,
 				2009602DBC204B34A8308D24 /* libReactNativeConfig.a in Frameworks */,
 				705D802120AF424EB4B2702D /* libRNBlur.a in Frameworks */,
+				A2149B358F9A2474AE9DDD42 /* libPods-_spotify.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +546,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
+				1C239907943F6FF102E97A2A /* libPods-_spotify-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +554,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A20EDA74A3547630946C2B8 /* libPods-_spotify-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +643,7 @@
 		13B07FAE1A68108700A75B9A /* _spotify */ = {
 			isa = PBXGroup;
 			children = (
+				32AFE2C9201A707E00E76B75 /* GoogleService-Info.plist */,
 				6C0035002004323500587269 /* _spotify.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -813,6 +837,8 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				57AD8808A8D74D2299EFE5F8 /* Resources */,
 				6C2E08D61FFEAF5E00D9538B /* Recovered References */,
+				E8893684724275D5E896DA04 /* Pods */,
+				DC975A90279E1C16C35B2A2E /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -839,6 +865,32 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DC975A90279E1C16C35B2A2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F150DA20347101E576C0E614 /* libPods-_spotify.a */,
+				2D40C514883EDFF864BCFA1D /* libPods-_spotify-tvOS.a */,
+				9F19EF264A02D7AEDD13D7B5 /* libPods-_spotify-tvOSTests.a */,
+				07269729E303411E02ABFEB9 /* libPods-_spotifyTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E8893684724275D5E896DA04 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BBB246F8A266DD395F2B4298 /* Pods-_spotify.debug.xcconfig */,
+				78319E25980545CEAF2F8164 /* Pods-_spotify.release.xcconfig */,
+				7C0AC8F46D70890351A4678A /* Pods-_spotify-tvOS.debug.xcconfig */,
+				462DD4A07E0CB7BD2718ECBB /* Pods-_spotify-tvOS.release.xcconfig */,
+				B55DE06512DB73749A726CCA /* Pods-_spotify-tvOSTests.debug.xcconfig */,
+				A2D8E99448020772D621B521 /* Pods-_spotify-tvOSTests.release.xcconfig */,
+				111B0D0BBB75EEDF551954C5 /* Pods-_spotifyTests.debug.xcconfig */,
+				396620A99F9A4B78D63E5745 /* Pods-_spotifyTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -846,9 +898,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "_spotifyTests" */;
 			buildPhases = (
+				4EF0A921D59C5EC1FCD511CA /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				26E2D0EE964B7600355DFBCF /* [CP] Embed Pods Frameworks */,
+				1FE8A1BD63CA9F38251000F5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -864,11 +919,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "_spotify" */;
 			buildPhases = (
+				8E8FA861EEDCDB9DDF04F7C7 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				6C2E09161FFEB08500D9538B /* Embed Frameworks */,
+				4B6B9991C4A264B84B773F3C /* [CP] Embed Pods Frameworks */,
+				7514A2E9773F250B187E943B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -883,10 +941,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "_spotify-tvOS" */;
 			buildPhases = (
+				E43E53353F60A5D424EAA97F /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
 				2D02E4791E0B4A5D006451C7 /* Resources */,
 				2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */,
+				D1179E20E4F80AD64BEAC920 /* [CP] Embed Pods Frameworks */,
+				B9FCEC6A726E313F7EBFDD42 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -901,9 +962,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "_spotify-tvOSTests" */;
 			buildPhases = (
+				926F9A25E45ABBB97C2CCAF1 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
+				7781E7BF951B9A6CE0B345C6 /* [CP] Embed Pods Frameworks */,
+				80B44A5E1924B6FB50AA640A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1360,6 +1424,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				32AFE2F4201A707E00E76B75 /* GoogleService-Info.plist in Resources */,
 				74555A9FBB9542EEB2EC6CF6 /* Entypo.ttf in Resources */,
 				C860B34F7DF6470690C5897F /* EvilIcons.ttf in Resources */,
 				63C43B61317F47A79A2841B0 /* FontAwesome.ttf in Resources */,
@@ -1417,6 +1482,36 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		1FE8A1BD63CA9F38251000F5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-_spotifyTests/Pods-_spotifyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26E2D0EE964B7600355DFBCF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-_spotifyTests/Pods-_spotifyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1430,6 +1525,168 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		4B6B9991C4A264B84B773F3C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-_spotify/Pods-_spotify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EF0A921D59C5EC1FCD511CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-_spotifyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7514A2E9773F250B187E943B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-_spotify/Pods-_spotify-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7781E7BF951B9A6CE0B345C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-_spotify-tvOSTests/Pods-_spotify-tvOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80B44A5E1924B6FB50AA640A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-_spotify-tvOSTests/Pods-_spotify-tvOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E8FA861EEDCDB9DDF04F7C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-_spotify-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		926F9A25E45ABBB97C2CCAF1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-_spotify-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9FCEC6A726E313F7EBFDD42 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-_spotify-tvOS/Pods-_spotify-tvOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1179E20E4F80AD64BEAC920 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-_spotify-tvOS/Pods-_spotify-tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E43E53353F60A5D424EAA97F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-_spotify-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1498,6 +1755,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 111B0D0BBB75EEDF551954C5 /* Pods-_spotifyTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1541,6 +1799,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 396620A99F9A4B78D63E5745 /* Pods-_spotifyTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1581,6 +1840,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBB246F8A266DD395F2B4298 /* Pods-_spotify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1612,6 +1872,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78319E25980545CEAF2F8164 /* Pods-_spotify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1642,6 +1903,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C0AC8F46D70890351A4678A /* Pods-_spotify-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1690,6 +1952,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 462DD4A07E0CB7BD2718ECBB /* Pods-_spotify-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1738,6 +2001,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B55DE06512DB73749A726CCA /* Pods-_spotify-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1772,6 +2036,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2D8E99448020772D621B521 /* Pods-_spotify-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
