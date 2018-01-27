@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+
 import { ActivityIndicator, Alert, StyleSheet, View } from 'react-native';
 import { Button, Text } from 'native-base';
+import { Metrics, Colors, Fonts } from '../Themes';
 
-import { NavigationActions } from 'react-navigation';
 import Spotify from 'react-native-spotify';
-import { Colors, Fonts } from '../Themes';
 
-export default class InitialScreen extends Component {
+import * as ReactNavigation from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
+import { connect } from 'react-redux';
+
+export class InitialScreen extends Component {
   static navigationOptions = {
     header: null
   };
@@ -14,6 +18,11 @@ export default class InitialScreen extends Component {
   constructor(props) {
     super(props);
     this.state = { spotifyInitialized: false };
+    const { nav, dispatch } = props;
+    this.navigation = ReactNavigation.addNavigationHelpers({
+      dispatch,
+      state: nav
+    });
     this.goToPlayer = this.goToPlayer.bind(this);
     this.initializeSpotify = this.initializeSpotify.bind(this);
     this.spotifyLoginButtonWasPressed = this.spotifyLoginButtonWasPressed.bind(
@@ -22,11 +31,11 @@ export default class InitialScreen extends Component {
   }
 
   goToPlayer() {
-    const navAction = NavigationActions.reset({
+    var navAction = NavigationActions.reset({
       index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'player' })]
+      actions: [NavigationActions.navigate({ routeName: 'newsfeed' })]
     });
-    this.props.navigation.dispatch(navAction);
+    this.navigation.dispatch(navAction);
   }
 
   initializeSpotify() {
@@ -97,8 +106,7 @@ export default class InitialScreen extends Component {
     if (!this.state.spotifyInitialized) {
       return (
         <View style={styles.container}>
-          {/* <ActivityIndicator animating={true} style={styles.loadIndicator} /> */}
-          {/* <Text style={styles.loadMessage}>Initializing Spotify</Text> */}
+          <ActivityIndicator animating={true} style={styles.loadIndicator} />
         </View>
       );
     } else {
@@ -106,12 +114,12 @@ export default class InitialScreen extends Component {
         <View style={styles.container}>
           <Text style={styles.greeting}>Ripple</Text>
           <Button
-            full
-            block
             onPress={this.spotifyLoginButtonWasPressed}
             style={styles.spotifyLoginButton}
           >
-            <Text style={styles.spotifyLoginButtonText}>Log into Spotify</Text>
+            <Text style={styles.spotifyLoginButtonText}>
+              Connect to Spotify
+            </Text>
           </Button>
         </View>
       );
@@ -119,26 +127,24 @@ export default class InitialScreen extends Component {
   }
 }
 
+const mapStateToProps = state => ({ nav: state.nav });
+export default connect(mapStateToProps)(InitialScreen);
+
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    flex: 1
   },
-
   loadIndicator: {},
-  loadMessage: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
-  },
-
   spotifyLoginButton: {
-    justifyContent: 'center',
-    backgroundColor: 'green'
+    borderRadius: 50,
+    backgroundColor: '#6A95EB',
+    alignSelf: 'center'
   },
   spotifyLoginButtonText: {
     fontSize: 20,
-    textAlign: 'center',
+    paddingTop: 3,
     color: 'white'
   },
   greeting: {

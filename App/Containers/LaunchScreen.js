@@ -11,11 +11,11 @@ import Discover from './Discover.js';
 
 export default (App = StackNavigator(
   {
-    initial: { screen: InitialScreen, headerMode: 'none', header: null },
-    player: { screen: PlayerScreen, headerMode: 'none' },
-    profile: { screen: ProfilePage, headerMode: 'none' },
-    newsfeed: { screen: Newsfeed, headerMode: 'none' },
-    discover: { screen: Discover, headerMode: 'none' }
+    initial: { screen: InitialScreen },
+    player: { screen: PlayerScreen },
+    profile: { screen: ProfilePage },
+    newsfeed: { screen: Newsfeed },
+    discover: { screen: Discover }
   },
   {
     headerMode: 'none'

@@ -7,12 +7,13 @@ import {
   Header,
   Item,
   Input,
-  Icon,
   Button,
   Text,
   Content
 } from 'native-base';
 import Spotify from 'react-native-spotify';
+
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import SearchResultCategory from '../Components/SearchResults/SearchResultCategory';
 
@@ -85,11 +86,15 @@ export default class SearchBar extends Component {
   render() {
     return (
       <Header searchBar>
-        <Button transparent>
+        {/* <Button transparent>
           <Icon name="ios-people" style={styles.menuIcons} />
-        </Button>
+        </Button> */}
         <Item style={styles.searchBarContainer}>
-          <Icon name="ios-search" style={styles.searchBarSearchIcon} />
+          <Icon
+            name="ios-search"
+            size={16}
+            style={styles.searchBarSearchIcon}
+          />
           <Input
             placeholder="Search"
             style={styles.searchBar}
@@ -98,14 +103,15 @@ export default class SearchBar extends Component {
             onBlur={this.unmountSearchResults}
           />
           <Icon
-            name="ios-search"
+            name="ios-close-outline"
+            size={21}
             style={styles.searchBarClearIcon}
             onPress={this.props.handleClearSearch}
           />
         </Item>
-        <Button transparent>
-          <Icon name="ios-people" style={styles.menuIcons} />
-        </Button>
+        {/* <Button transparent>
+          <Icon name="ios-send-outline" size={30} style={styles.menuIcons} />
+        </Button> */}
       </Header>
     );
   }
@@ -121,12 +127,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderRadius: 10
   },
-  searchBarSearchIcon: { fontSize: 16, paddingRight: 1 },
-  searchBarClearIcon: { fontSize: 16, paddingRight: 1 },
+  searchBarSearchIcon: { paddingLeft: 10, paddingTop: 3 },
+  searchBarClearIcon: { paddingRight: 10, paddingTop: 4 },
   menuIcons: {
     color: Colors.menuBar,
-    marginLeft: 3,
     marginRight: 3,
-    paddingLeft: 0
+    paddingTop: 3
   }
 });

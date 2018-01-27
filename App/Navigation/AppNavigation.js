@@ -2,7 +2,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import LaunchScreen from '../Containers/LaunchScreen';
 import InitialScreen from '../Containers/InitialScreen';
-import PlayerScreen from '../Containers/PlayerScreen';
+import { PlayerScreen } from '../Containers/PlayerScreen';
 import ProfilePage from '../Containers/ProfilePage';
 import Newsfeed from '../Containers/Newsfeed';
 import Discover from '../Containers/Discover';
