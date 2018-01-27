@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { ActivityIndicator, Alert, StyleSheet, View } from 'react-native';
-import { Button, Text } from 'native-base';
+import { Button, Text, Content, Container } from 'native-base';
 import { Metrics, Colors, Fonts } from '../Themes';
 
 import Spotify from 'react-native-spotify';
@@ -10,7 +10,7 @@ import * as ReactNavigation from 'react-navigation';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 
-export class InitialScreen extends Component {
+export default class InitialScreen extends Component {
   static navigationOptions = {
     header: null
   };
@@ -18,24 +18,19 @@ export class InitialScreen extends Component {
   constructor(props) {
     super(props);
     this.state = { spotifyInitialized: false };
-    const { nav, dispatch } = props;
-    this.navigation = ReactNavigation.addNavigationHelpers({
-      dispatch,
-      state: nav
-    });
-    this.goToPlayer = this.goToPlayer.bind(this);
+    this.goToNewsfeed = this.goToNewsfeed.bind(this);
     this.initializeSpotify = this.initializeSpotify.bind(this);
     this.spotifyLoginButtonWasPressed = this.spotifyLoginButtonWasPressed.bind(
       this
     );
   }
 
-  goToPlayer() {
+  goToNewsfeed() {
     var navAction = NavigationActions.reset({
       index: 0,
       actions: [NavigationActions.navigate({ routeName: 'newsfeed' })]
     });
-    this.navigation.dispatch(navAction);
+    this.props.navigation.dispatch(navAction);
   }
 
   initializeSpotify() {
@@ -73,14 +68,14 @@ export class InitialScreen extends Component {
             Alert.alert('Error', error.message);
           }
           if (loggedIn) {
-            this.goToPlayer();
+            this.goToNewsfeed();
           }
         });
       } else {
         this.setState({ spotifyInitialized: true });
         Spotify.isLoggedInAsync(loggedIn => {
           if (loggedIn) {
-            this.goToPlayer();
+            this.goToNewsfeed();
           }
         });
       }
@@ -97,7 +92,7 @@ export class InitialScreen extends Component {
         Alert.alert('Error', error.message);
       }
       if (loggedIn) {
-        this.goToPlayer();
+        this.goToNewsfeed();
       }
     });
   }
@@ -105,13 +100,17 @@ export class InitialScreen extends Component {
   render() {
     if (!this.state.spotifyInitialized) {
       return (
-        <View style={styles.container}>
-          <ActivityIndicator animating={true} style={styles.loadIndicator} />
-        </View>
+        <Container style={styles.container}>
+          <ActivityIndicator
+            animating={true}
+            color="#BDB76B"
+            style={styles.loadIndicator}
+          />
+        </Container>
       );
     } else {
       return (
-        <View style={styles.container}>
+        <Container style={styles.container}>
           <Text style={styles.greeting}>Ripple</Text>
           <Button
             onPress={this.spotifyLoginButtonWasPressed}
@@ -121,20 +120,18 @@ export class InitialScreen extends Component {
               Connect to Spotify
             </Text>
           </Button>
-        </View>
+        </Container>
       );
     }
   }
 }
 
-const mapStateToProps = state => ({ nav: state.nav });
-export default connect(mapStateToProps)(InitialScreen);
-
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1
+    flex: 1,
+    backgroundColor: 'red'
   },
   loadIndicator: {},
   spotifyLoginButton: {

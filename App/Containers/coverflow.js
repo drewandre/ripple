@@ -28,7 +28,7 @@ export default class CoverFlow extends Component {
         <TouchableOpacity onPress={() => this.props.scrollDown()}>
           <Icon name="ios-arrow-down-outline" color="black" size={24} />
         </TouchableOpacity>
-        <Text style={styles.playing}>NOW PLAYING</Text>
+        {/* <Text style={styles.playing}>NOW PLAYING</Text> */}
         <Icon name="ios-list-outline" color="black" size={26} />
       </View>
     );
@@ -132,7 +132,7 @@ export default class CoverFlow extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 20
+    paddingTop: 15
   },
 
   header: {

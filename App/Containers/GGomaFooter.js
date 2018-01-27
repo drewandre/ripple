@@ -15,8 +15,8 @@ import CoverFlow from './coverflow';
 
 import { Metrics as D, Colors, Fonts } from '../Themes';
 
-export const FOOTER_HEIGHT = 48;
-export const TABBAR_HEIGHT = 56;
+export const FOOTER_HEIGHT = 45;
+export const TABBAR_HEIGHT = 50;
 export const TOGETHER = FOOTER_HEIGHT + TABBAR_HEIGHT;
 
 export default class GGomaFooter extends Component {
@@ -225,7 +225,7 @@ export default class GGomaFooter extends Component {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-            paddingTop: 10,
+            paddingTop: 8,
             paddingLeft: 15,
             paddingRight: 15
           }}
@@ -263,7 +263,6 @@ export default class GGomaFooter extends Component {
   render() {
     return (
       <View ref="view" style={styles.container}>
-        <StatusBar ref="status" animated={true} barStyle={'light-content'} />
         <Animated.View
           {...this._panResponder.panHandlers}
           style={[styles.playing, this.getStyle()]}
@@ -290,7 +289,6 @@ const styles = StyleSheet.create({
   firstView: {
     position: 'absolute',
     top: 0,
-    height: FOOTER_HEIGHT + 10,
     width: D.screenWidth,
     backgroundColor: Colors.instagramMenuBar,
     borderTopColor: '#D4D4D4',

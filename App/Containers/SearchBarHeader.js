@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, TouchableOpacity } from 'react-native';
 import { Metrics, Colors, Fonts } from '../Themes';
 
 import {
@@ -12,20 +12,41 @@ import {
   Content
 } from 'native-base';
 import Spotify from 'react-native-spotify';
+import { NavigationActions } from 'react-navigation';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import SearchResultCategory from '../Components/SearchResults/SearchResultCategory';
 
-export default class SearchBar extends Component {
+export default class SearchBarHeader extends Component {
   constructor(props) {
     super(props);
     this.handleSearch = this.handleSearch.bind(this);
     this.retrieveRecentSearches = this.retrieveRecentSearches.bind(this);
     this.unmountSearchResults = this.unmountSearchResults.bind(this);
+    this.handleInboxNavigation = this.handleInboxNavigation.bind(this);
+    // this.handleBackNavigation = this.handleBackNavigation.bind(this);
   }
 
+  handleInboxNavigation(navAction) {
+    var navAction = NavigationActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'inbox' })]
+    });
+    this.props.navigation.dispatch(navAction);
+  }
+
+  // handleBackNavigation(navAction) {
+  //   console.log('going back...');
+  //   // var navAction = NavigationActions.reset({
+  //   //   index: 0,
+  //   //   actions: [NavigationActions.navigate({ routeName: 'newsfeed' })]
+  //   // });
+  //   this.props.navigation.goBack();
+  // }
+
   handleSearch(query) {
+    this.props.setSearchQuery(query);
     var organizedResults = {};
     var searchResultsCategoryObjectArray = [];
     let options = { limit: '5' };
@@ -84,11 +105,22 @@ export default class SearchBar extends Component {
   }
 
   render() {
+    const { goBack } = this.props.navigation;
+    // const backAction = NavigationActions.back({
+    //   key: null
+    // });
     return (
       <Header searchBar>
-        {/* <Button transparent>
-          <Icon name="ios-people" style={styles.menuIcons} />
-        </Button> */}
+        <Button
+          transparent
+          onPress={() =>
+            this.props.navigation.dispatch(NavigationActions.back())
+          }
+          // this.props.navigation.dispatch(backAction);
+          style={styles.headerBackButtonIcon}
+        >
+          <Icon name="ios-arrow-back-outline" size={30} />
+        </Button>
         <Item style={styles.searchBarContainer}>
           <Icon
             name="ios-search"
@@ -101,17 +133,22 @@ export default class SearchBar extends Component {
             onChangeText={this.handleSearch}
             onFocus={this.retrieveRecentSearches}
             onBlur={this.unmountSearchResults}
+            value={this.props.searchQuery}
           />
-          <Icon
-            name="ios-close-outline"
-            size={21}
-            style={styles.searchBarClearIcon}
+          <TouchableOpacity
             onPress={this.props.handleClearSearch}
-          />
+            style={styles.searchBarClearIcon}
+          >
+            <Icon name="ios-close-outline" size={26} />
+          </TouchableOpacity>
         </Item>
-        {/* <Button transparent>
-          <Icon name="ios-send-outline" size={30} style={styles.menuIcons} />
-        </Button> */}
+        <Button
+          transparent
+          onPress={this.handleInboxNavigation}
+          style={styles.headerInboxButtonIcon}
+        >
+          <Icon name="ios-send-outline" size={30} />
+        </Button>
       </Header>
     );
   }
@@ -127,11 +164,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderRadius: 10
   },
-  searchBarSearchIcon: { paddingLeft: 10, paddingTop: 3 },
-  searchBarClearIcon: { paddingRight: 10, paddingTop: 4 },
-  menuIcons: {
-    color: Colors.menuBar,
-    marginRight: 3,
-    paddingTop: 3
-  }
+  searchBarSearchIcon: { marginLeft: 10, marginTop: 3 },
+  searchBarClearIcon: { marginRight: 10, marginTop: 2 },
+  headerBackButtonIcon: { paddingLeft: 5, paddingTop: 9, paddingRight: 7 },
+  headerInboxButtonIcon: { paddingRight: 3, paddingTop: 9, paddingLeft: 4 }
 });

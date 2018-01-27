@@ -22,7 +22,7 @@ import Spotify from 'react-native-spotify';
 
 import styles from '../Navigation/Styles/NavigationStyles';
 
-export default class PlayerScreen extends Component {
+export default class StatsScreen extends Component {
   static navigationOptions = {
     header: null,
     headerMode: 'none'
@@ -31,6 +31,15 @@ export default class PlayerScreen extends Component {
   constructor(props) {
     super(props);
     this.state = { spotifyUser: null };
+    this.goToNewsfeed = this.goToNewsfeed.bind(this);
+  }
+
+  goToNewsfeed() {
+    var navAction = NavigationActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'newsfeed' })]
+    });
+    this.props.navigation.dispatch(navAction);
   }
 
   componentDidMount() {
@@ -49,7 +58,10 @@ export default class PlayerScreen extends Component {
   render() {
     return (
       <View>
-        <Text>Hello from PlayerScreen.js</Text>
+        <Text>Hello from StatsScreen.js</Text>
+        {/* <Button onPress={this.goToNewsfeed}>
+          <Text>Go to Newsfeed</Text>
+        </Button> */}
       </View>
     );
   }

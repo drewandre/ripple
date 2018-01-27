@@ -25,13 +25,13 @@ export default class tabBarNavigation extends Component {
     translateY: new Animated.Value(0)
   };
 
-  details = ['Newsfeed', 'Profile', 'Pulse', 'Inbox', 'Library'];
+  details = ['Newsfeed', 'Concerts', 'Discover', 'Stats', 'Profile'];
   icons = [
     'ios-home-outline',
-    'ios-contact-outline',
+    'ios-navigate-outline',
     'ios-disc-outline',
-    'ios-chatbubbles-outline',
-    'ios-musical-notes-outline'
+    'ios-pulse-outline',
+    'ios-contact-outline'
   ];
 
   handleNavigation(footerPageIndex) {
@@ -54,7 +54,7 @@ export default class tabBarNavigation extends Component {
         >
           <View style={styles.tab_item}>
             <Icon name={this.icons[i]} color={color} size={24} />
-            <Text style={[styles.text, { color }]}>{item}</Text>
+            {/* <Text style={[styles.text, { color }]}>{item}</Text> */}
           </View>
         </TouchableWithoutFeedback>
       );
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     width: D.screenWidth,
     bottom: 0,
-    height: 50,
+    height: 45,
     backgroundColor: Colors.instagramMenuBar
   },
 

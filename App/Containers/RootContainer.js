@@ -13,8 +13,8 @@ import ReduxPersist from '../Config/ReduxPersist';
 import styles from './Styles/RootContainerStyles';
 import { Colors, Fonts } from '../Themes';
 
-import SearchBar from './SearchBar';
-import InitialScreen from './InitialScreen';
+import SearchBarHeader from './SearchBarHeader';
+// import InitialScreen from './InitialScreen';
 import FooterNavigation from './FooterNavigation';
 import GGomaFooter from './GGomaFooter';
 import TabBarNavigation from './tab-bar-navigation';
@@ -32,31 +32,40 @@ import {
 
 import { StyleSheet, ScrollView } from 'react-native';
 
+function ReduxNavigation(props) {
+  const { dispatch, nav } = props;
+  const navigation = ReactNavigation.addNavigationHelpers({
+    dispatch,
+    state: nav
+  });
+  return navigation;
+}
+
 export class RootContainer extends Component {
   constructor(props) {
     super(props);
-    const { nav, dispatch } = props;
-    this.navigation = ReactNavigation.addNavigationHelpers({
-      dispatch,
-      state: nav
-    });
     this.state = {
       searching: false,
       showSearchContainer: false,
       searchResults: [],
-      nowPlaying: false
-      // sessionActive: false
+      nowPlaying: false,
+      searchQuery: ''
     };
     this.handleSearching = this.handleSearching.bind(this);
     this.passSearchResults = this.passSearchResults.bind(this);
     this.handleClearSearch = this.handleClearSearch.bind(this);
-    // this.handleSession = this.handleSession.bind(this);
+    this.handleNavigation = this.handleNavigation.bind(this);
+    this.setSearchQuery = this.setSearchQuery.bind(this);
   }
   componentDidMount() {
     // if redux persist is not active fire startup action
     if (!ReduxPersist.active) {
       this.props.startup();
     }
+  }
+
+  handleNavigation(navAction) {
+    return ReduxNavigation(navAction);
   }
 
   handleSearching() {
@@ -67,24 +76,31 @@ export class RootContainer extends Component {
   }
 
   handleClearSearch(event) {
-    this.setState({ searchResults: [] });
+    this.setState({ searchResults: [], searchQuery: '' });
+  }
+
+  setSearchQuery(query) {
+    this.setState({ searchQuery: query });
   }
 
   render() {
+    var navigation = this.handleNavigation(this.props);
     return (
       <Container style={styles.applicationView}>
-        <StatusBar barStyle="dark-content" />
-        <SearchBar
+        <SearchBarHeader
+          navigation={navigation}
           handleClearSearch={this.handleClearSearch}
           passSearchResults={this.passSearchResults}
           handleSearching={this.handleSearching}
+          setSearchQuery={this.setSearchQuery}
+          searchQuery={this.state.searchQuery}
           showSearchContainer={this.state.showSearchContainer}
         />
         <Content>
           {this.state.searchResults.length > 1 ? (
             <ScrollView>{this.state.searchResults}</ScrollView>
           ) : (
-            <AppNavigation navigation={this.navigation} />
+            <AppNavigation navigation={navigation} />
           )}
         </Content>
         <GGomaFooter
@@ -93,7 +109,7 @@ export class RootContainer extends Component {
           show={() => this.refs.tab.show()}
           hideTabBarNavigation={v => this.refs.tab.setHeight(v)}
         />
-        <TabBarNavigation ref="tab" navigation={this.navigation} />
+        <TabBarNavigation ref="tab" navigation={navigation} />
       </Container>
     );
   }

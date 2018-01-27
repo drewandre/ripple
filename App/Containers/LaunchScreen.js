@@ -4,18 +4,22 @@ import { StackNavigator } from 'react-navigation';
 import Spotify from 'react-native-spotify';
 
 import InitialScreen from './InitialScreen.js';
-import PlayerScreen from './PlayerScreen.js';
+import StatsScreen from './StatsScreen.js';
 import ProfilePage from './ProfilePage.js';
 import Newsfeed from './Newsfeed.js';
 import Discover from './Discover.js';
+import ConcertsPage from './ConcertsPage.js';
+import Inbox from './Inbox.js';
 
 export default (App = StackNavigator(
   {
     initial: { screen: InitialScreen },
-    player: { screen: PlayerScreen },
+    stats: { screen: StatsScreen },
     profile: { screen: ProfilePage },
     newsfeed: { screen: Newsfeed },
-    discover: { screen: Discover }
+    discover: { screen: Discover },
+    concerts: { screen: ConcertsPage },
+    inbox: { screen: Inbox }
   },
   {
     headerMode: 'none'

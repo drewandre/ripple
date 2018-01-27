@@ -20,15 +20,10 @@ export default class ProfilePage extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       spotifyUser: null
     };
-
-    this.spotifyLogoutButtonWasPressed = this.spotifyLogoutButtonWasPressed.bind(
-      this
-    );
-    this.goToPlayerPage = this.goToPlayerPage.bind(this);
+    this.spotifyLogout = this.spotifyLogout.bind(this);
   }
 
   componentDidMount() {
@@ -44,20 +39,16 @@ export default class ProfilePage extends Component {
     });
   }
 
-  goToPlayerPage() {
-    const navAction = NavigationActions.reset({
-      index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'player' })]
-    });
-    this.props.navigation.dispatch(navAction);
-  }
-
-  spotifyLogoutButtonWasPressed() {
+  spotifyLogout() {
     Spotify.logout(error => {
       if (error) {
         Alert.alert('Error', error.message);
       } else {
-        this.goToInitialScreen();
+        const navAction = NavigationActions.reset({
+          index: 0,
+          actions: [NavigationActions.navigate({ routeName: 'initial' })]
+        });
+        this.props.navigation.dispatch(navAction);
       }
     });
   }
@@ -65,7 +56,7 @@ export default class ProfilePage extends Component {
   render() {
     return (
       <View>
-        <Button block info onPress={this.spotifyLogoutButtonWasPressed}>
+        <Button block info onPress={this.spotifyLogout}>
           <Text>Log out</Text>
         </Button>
       </View>

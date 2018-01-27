@@ -2,10 +2,12 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import LaunchScreen from '../Containers/LaunchScreen';
 import InitialScreen from '../Containers/InitialScreen';
-import { PlayerScreen } from '../Containers/PlayerScreen';
+import StatsScreen from '../Containers/StatsScreen';
 import ProfilePage from '../Containers/ProfilePage';
 import Newsfeed from '../Containers/Newsfeed';
 import Discover from '../Containers/Discover';
+import ConcertsPage from '../Containers/ConcertsPage';
+import Inbox from '../Containers/Inbox';
 
 import styles from './Styles/NavigationStyles';
 
@@ -27,13 +29,23 @@ const PrimaryNav = StackNavigator(
     }
   },
   {
+    ConcertsPage: {
+      screen: ConcertsPage
+    }
+  },
+  {
     Discover: {
       screen: Discover
     }
   },
   {
-    PlayerScreen: {
-      screen: PlayerScreen
+    Inbox: {
+      screen: Inbox
+    }
+  },
+  {
+    StatsScreen: {
+      screen: StatsScreen
     }
   },
   {
