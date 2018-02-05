@@ -39,6 +39,7 @@
     "react-native-blur": "^3.2.2",
     "react-native-config": "^0.10.0",
     "react-native-device-info": "0.11.0",
+    "react-native-firebase": "^3.2.2",
     "react-native-i18n": "1.0.0",
     "react-native-spotify": "git+https://github.com/lufinkey/react-native-spotify.git",
     "react-native-vector-icons": "^4.3.0",
