@@ -3,11 +3,14 @@ import { View, StatusBar } from 'react-native';
 
 import * as ReactNavigation from 'react-navigation';
 import { NavigationActions } from 'react-navigation';
-import { connect } from 'react-redux';
 import AppNavigation from '../Navigation/AppNavigation';
 
-import StartupActions from '../Redux/StartupRedux';
+// REDUX
+// import StartupActions from '../Redux/StartupRedux';
+import * as PlayingState from '../Redux/PlayingState';
+import { connect } from 'react-redux';
 import ReduxPersist from '../Config/ReduxPersist';
+
 // import { BlurView } from 'react-native-blur';
 
 import styles from './Styles/RootContainerStyles';
@@ -15,7 +18,6 @@ import { Colors, Fonts } from '../Themes';
 
 import SearchBarHeader from './SearchBarHeader';
 // import InitialScreen from './InitialScreen';
-import FooterNavigation from './FooterNavigation';
 import GGomaFooter from './GGomaFooter';
 import TabBarNavigation from './tab-bar-navigation';
 
@@ -57,12 +59,12 @@ export class RootContainer extends Component {
     this.handleNavigation = this.handleNavigation.bind(this);
     this.setSearchQuery = this.setSearchQuery.bind(this);
   }
-  componentDidMount() {
-    // if redux persist is not active fire startup action
-    if (!ReduxPersist.active) {
-      this.props.startup();
-    }
-  }
+  // componentDidMount() {
+  // // if redux persist is not active fire startup action
+  // if (!ReduxPersist.active) {
+  // this.props.startup();
+  // }
+  // }
 
   handleNavigation(navAction) {
     return ReduxNavigation(navAction);
@@ -103,12 +105,14 @@ export class RootContainer extends Component {
             <AppNavigation navigation={navigation} />
           )}
         </Content>
-        <GGomaFooter
-          ref="footer"
-          hide={() => this.refs.tab.hide()}
-          show={() => this.refs.tab.show()}
-          hideTabBarNavigation={v => this.refs.tab.setHeight(v)}
-        />
+        {this.props.playerState.playerState ? (
+          <GGomaFooter
+            ref="footer"
+            hide={() => this.refs.tab.hide()}
+            show={() => this.refs.tab.show()}
+            hideTabBarNavigation={v => this.refs.tab.setHeight(v)}
+          />
+        ) : null}
         <TabBarNavigation ref="tab" navigation={navigation} />
       </Container>
     );
@@ -129,11 +133,9 @@ const tempStyles = StyleSheet.create({
   }
 });
 
-// wraps dispatch to create nicer functions to call within our component
-// const mapDispatchToProps = dispatch => ({
-//   startup: () => dispatch(StartupActions.startup())
-// });
+const mapStateToProps = state => ({
+  nav: state.nav,
+  playerState: state.playingState
+});
 
-const mapStateToProps = state => ({ nav: state.nav });
-// export default connect(mapStateToProps, mapDispatchToProps)(RootContainer);
 export default connect(mapStateToProps)(RootContainer);

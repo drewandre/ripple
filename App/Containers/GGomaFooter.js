@@ -15,11 +15,14 @@ import CoverFlow from './coverflow';
 
 import { Metrics as D, Colors, Fonts } from '../Themes';
 
+import * as PlayingState from '../Redux/PlayingState';
+import { connect } from 'react-redux';
+
 export const FOOTER_HEIGHT = 45;
 export const TABBAR_HEIGHT = 50;
 export const TOGETHER = FOOTER_HEIGHT + TABBAR_HEIGHT;
 
-export default class GGomaFooter extends Component {
+export class GGomaFooter extends Component {
   state = {
     pan: new Animated.ValueXY(),
     opacity: new Animated.Value(1)
@@ -188,7 +191,6 @@ export default class GGomaFooter extends Component {
 
   scrollUp() {
     Animated.spring(this.state.opacity, { toValue: 0 }).start();
-
     this.openPlaying(-101);
   }
 
@@ -274,6 +276,16 @@ export default class GGomaFooter extends Component {
     );
   }
 }
+
+// wraps dispatch to create nicer functions to call within our component
+const mapDispatchToProps = dispatch => ({
+  PlayingState: () => dispatch(PlayingState)
+});
+
+const mapStateToProps = state => ({
+  playerState: state.playingState
+});
+export default connect(mapStateToProps, mapDispatchToProps)(GGomaFooter);
 
 const styles = StyleSheet.create({
   container: {

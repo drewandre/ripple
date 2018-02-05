@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -49,9 +50,6 @@
 		6C2E09121FFEB08500D9538B /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E090E1FFEB08500D9538B /* SpotifyMetadata.framework */; };
 		6C2E09141FFEB08500D9538B /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E090F1FFEB08500D9538B /* SpotifyAudioPlayback.framework */; };
 		6CA52F9A1FFF16E8007077CC /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		6CDA6DF4201C112200BEB690 /* SpotifyAudioPlayback.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E090F1FFEB08500D9538B /* SpotifyAudioPlayback.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6CDA6DF5201C112200BEB690 /* SpotifyAuthentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E090D1FFEB08500D9538B /* SpotifyAuthentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6CDA6DF6201C112200BEB690 /* SpotifyMetadata.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E090E1FFEB08500D9538B /* SpotifyMetadata.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		705D802120AF424EB4B2702D /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F6FB92B40945518E905D6C /* libRNBlur.a */; };
 		74555A9FBB9542EEB2EC6CF6 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5821CAF3426841E6A87BC78E /* Entypo.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -396,16 +394,13 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		6C2E09161FFEB08500D9538B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6CDA6DF4201C112200BEB690 /* SpotifyAudioPlayback.framework in Embed Frameworks */,
-				6CDA6DF5201C112200BEB690 /* SpotifyAuthentication.framework in Embed Frameworks */,
-				6CDA6DF6201C112200BEB690 /* SpotifyMetadata.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 

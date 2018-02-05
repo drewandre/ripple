@@ -13,7 +13,8 @@ export default Creators;
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  playingState: false
+  playingState: false,
+  currentTrack: {}
 });
 
 /* ------------- Selectors ------------- */
@@ -25,11 +26,13 @@ export const PlayingStateSelectors = {
 /* ------------- Reducers ------------- */
 
 // request the avatar for a user
-export const set = (state, { playingState }) =>
+export const setPlayingState = (state, { playingState }) => {
+  debugger;
   state.merge({ playingState: !state.playingState });
+};
 
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.SET_PLAYING_STATE]: set
+  [Types.SET_PLAYING_STATE]: setPlayingState
 });

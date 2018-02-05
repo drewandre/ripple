@@ -11,14 +11,19 @@ import {
   Text,
   Content
 } from 'native-base';
+
 import Spotify from 'react-native-spotify';
+
 import { NavigationActions } from 'react-navigation';
+
+import setPlayingState from '../Redux/PlayingState';
+import { connect } from 'react-redux';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import SearchResultCategory from '../Components/SearchResults/SearchResultCategory';
 
-export default class SearchBarHeader extends Component {
+export class SearchBarHeader extends Component {
   constructor(props) {
     super(props);
     this.handleSearch = this.handleSearch.bind(this);
@@ -46,7 +51,8 @@ export default class SearchBarHeader extends Component {
   // }
 
   handleSearch(query) {
-    this.props.setSearchQuery(query);
+    let that = this;
+    that.props.setSearchQuery(query);
     var organizedResults = {};
     var searchResultsCategoryObjectArray = [];
     let options = { limit: '5' };
@@ -91,7 +97,7 @@ export default class SearchBarHeader extends Component {
             }
           }
         }
-        this.props.passSearchResults(searchResultsCategoryObjectArray);
+        that.props.passSearchResults(searchResultsCategoryObjectArray);
       }
     );
   }
@@ -153,6 +159,15 @@ export default class SearchBarHeader extends Component {
     );
   }
 }
+
+// const mapDispatchToProps = dispatch => ({
+//   // PlayingState: () => dispatch(PlayingState)
+// });
+
+const mapStateToProps = state => {
+  return { state: state };
+};
+export default connect(mapStateToProps)(SearchBarHeader);
 
 const styles = StyleSheet.create({
   searchBarContainer: {
