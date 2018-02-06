@@ -7,7 +7,17 @@ import createStore from '../Redux';
 
 const store = createStore();
 
+import firebase from 'react-native-firebase';
+
 class App extends Component {
+  componentDidMount() {
+    firebase
+      .auth()
+      .signInAnonymously()
+      .then(user => {
+        console.log('user return: ' + user.isAnonymous);
+      });
+  }
   render() {
     return (
       <Provider store={store}>
