@@ -1,10 +1,12 @@
 #  Ripple
 
 ## To run locally for development:
-_Note that you’ll need to have [Node](https://nodejs.org/en/), [npm](https://www.npmjs.com/), and [Xcode](https://developer.apple.com/xcode/) installed._
+_Note that you’ll need to have [Node](https://nodejs.org/en/), [npm](https://www.npmjs.com/), cocoapods, and [Xcode](https://developer.apple.com/xcode/) installed._
 
 * Clone the repo: `$ git clone https://github.com/drewandre/ripple.git <YOUR_APP_NAME>`
 * Install JS dependencies: `$ npm install`
+* run `$ pod update && pod install` from within the ios directory
+* run `$ react-native link` from the project root directory
 * Fire up an iOs simulator: `react-native run-ios`
 * Or an Android simulator: Run Genymotion, and `react-native run-android`
 
