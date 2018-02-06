@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, Alert, StyleSheet, View } from 'react-native';
-import { Button, Text } from 'native-base';
 
-import { NavigationActions } from 'react-navigation';
+import { ActivityIndicator, Alert, StyleSheet, View } from 'react-native';
+import { Button, Text, Content, Container } from 'native-base';
+import { Metrics, Colors, Fonts } from '../Themes';
+
 import Spotify from 'react-native-spotify';
-import { Colors, Fonts } from '../Themes';
+
+import * as ReactNavigation from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
+import { connect } from 'react-redux';
 
 export default class InitialScreen extends Component {
   static navigationOptions = {
@@ -14,17 +18,17 @@ export default class InitialScreen extends Component {
   constructor(props) {
     super(props);
     this.state = { spotifyInitialized: false };
-    this.goToPlayer = this.goToPlayer.bind(this);
+    this.goToNewsfeed = this.goToNewsfeed.bind(this);
     this.initializeSpotify = this.initializeSpotify.bind(this);
     this.spotifyLoginButtonWasPressed = this.spotifyLoginButtonWasPressed.bind(
       this
     );
   }
 
-  goToPlayer() {
-    const navAction = NavigationActions.reset({
+  goToNewsfeed() {
+    var navAction = NavigationActions.reset({
       index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'player' })]
+      actions: [NavigationActions.navigate({ routeName: 'newsfeed' })]
     });
     this.props.navigation.dispatch(navAction);
   }
@@ -64,14 +68,14 @@ export default class InitialScreen extends Component {
             Alert.alert('Error', error.message);
           }
           if (loggedIn) {
-            this.goToPlayer();
+            this.goToNewsfeed();
           }
         });
       } else {
         this.setState({ spotifyInitialized: true });
         Spotify.isLoggedInAsync(loggedIn => {
           if (loggedIn) {
-            this.goToPlayer();
+            this.goToNewsfeed();
           }
         });
       }
@@ -88,7 +92,7 @@ export default class InitialScreen extends Component {
         Alert.alert('Error', error.message);
       }
       if (loggedIn) {
-        this.goToPlayer();
+        this.goToNewsfeed();
       }
     });
   }
@@ -96,24 +100,27 @@ export default class InitialScreen extends Component {
   render() {
     if (!this.state.spotifyInitialized) {
       return (
-        <View style={styles.container}>
-          {/* <ActivityIndicator animating={true} style={styles.loadIndicator} /> */}
-          {/* <Text style={styles.loadMessage}>Initializing Spotify</Text> */}
-        </View>
+        <Container style={styles.container}>
+          <ActivityIndicator
+            animating={true}
+            color="#BDB76B"
+            style={styles.loadIndicator}
+          />
+        </Container>
       );
     } else {
       return (
-        <View style={styles.container}>
+        <Container style={styles.container}>
           <Text style={styles.greeting}>Ripple</Text>
           <Button
-            full
-            block
             onPress={this.spotifyLoginButtonWasPressed}
             style={styles.spotifyLoginButton}
           >
-            <Text style={styles.spotifyLoginButtonText}>Log into Spotify</Text>
+            <Text style={styles.spotifyLoginButtonText}>
+              Connect to Spotify
+            </Text>
           </Button>
-        </View>
+        </Container>
       );
     }
   }
@@ -122,23 +129,19 @@ export default class InitialScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    flex: 1,
+    backgroundColor: 'red'
   },
-
   loadIndicator: {},
-  loadMessage: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
-  },
-
   spotifyLoginButton: {
-    justifyContent: 'center',
-    backgroundColor: 'green'
+    borderRadius: 50,
+    backgroundColor: '#6A95EB',
+    alignSelf: 'center'
   },
   spotifyLoginButtonText: {
     fontSize: 20,
-    textAlign: 'center',
+    paddingTop: 3,
     color: 'white'
   },
   greeting: {

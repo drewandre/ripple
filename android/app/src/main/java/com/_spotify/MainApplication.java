@@ -3,6 +3,14 @@ package com._spotify;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.lufinkey.react.spotify.RCTSpotifyPackage;
+import com.i18n.reactnativei18n.ReactNativeI18n;
+import io.invertase.firebase.RNFirebasePackage;
+import com.learnium.RNDeviceInfo.RNDeviceInfo;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
+import com.cmcewen.blurview.BlurViewPackage;
+import io.invertase.firebase.RNFirebasePackage;
 import com.cmcewen.blurview.BlurViewPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.lufinkey.react.spotify.RCTSpotifyPackage;
@@ -29,6 +37,14 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VectorIconsPackage(),
+            new RCTSpotifyPackage(),
+            new ReactNativeI18n(),
+            new RNFirebasePackage(),
+            new RNDeviceInfo(),
+            new ReactNativeConfigPackage(),
+            new BlurViewPackage(),
+            new RNFirebasePackage(),
             new BlurViewPackage(),
             new ReactNativeConfigPackage(),
             new RCTSpotifyPackage(),

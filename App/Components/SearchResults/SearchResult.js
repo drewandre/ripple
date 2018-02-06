@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { Colors, Fonts } from '../../Themes';
 
-export default class SearchResult extends Component {
+import setPlayingState from '../../Redux/PlayingState';
+import { connect } from 'react-redux';
+
+export class SearchResult extends Component {
   constructor(props) {
     super(props);
     this.handlePress = this.handlePress.bind(this);
   }
 
   handlePress(event) {
-    this.props.onPress(this.props.item);
+    // this.props.onPress(this.props.item);
+    this.props.setPlayingState(true);
   }
 
   getSubtitle() {
@@ -49,11 +53,22 @@ export default class SearchResult extends Component {
   }
 }
 
-SearchResult.propTypes = {
-  onPress: PropTypes.func,
-  item: PropTypes.object.isRequired,
-  navigator: PropTypes.object
-};
+// wraps dispatch to create nicer functions to call within our component
+const mapDispatchToProps = dispatch => ({
+  setPlayingState: () => dispatch(setPlayingState)
+});
+
+const mapStateToProps = state => ({
+  playerState: state.playingState
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResult);
+
+// SearchResult.propTypes = {
+//   onPress: PropTypes.func,
+//   item: PropTypes.object.isRequired,
+//   navigator: PropTypes.object
+// };
 
 const styles = StyleSheet.create({
   searchResultContainer: {

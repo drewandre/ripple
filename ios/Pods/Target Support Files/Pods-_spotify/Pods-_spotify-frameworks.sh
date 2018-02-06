@@ -132,6 +132,31 @@ strip_invalid_archs() {
   STRIP_BINARY_RETVAL=1
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/BoringSSL-framework/openssl.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-framework/GTMSessionFetcher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-framework/GoogleToolboxForMac.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Protobuf-framework/Protobuf.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/gRPC-framework/GRPCClient.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/gRPC-Core-framework/grpc.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC-framework/ProtoRPC.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary-framework/RxLibrary.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/leveldb-library-framework/leveldb.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/nanopb-framework/nanopb.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/BoringSSL-framework/openssl.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-framework/GTMSessionFetcher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-framework/GoogleToolboxForMac.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Protobuf-framework/Protobuf.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/gRPC-framework/GRPCClient.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/gRPC-Core-framework/grpc.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC-framework/ProtoRPC.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary-framework/RxLibrary.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/leveldb-library-framework/leveldb.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/nanopb-framework/nanopb.framework"
+fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
 fi

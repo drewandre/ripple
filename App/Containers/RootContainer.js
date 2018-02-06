@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
-import ReduxNavigation from '../Navigation/ReduxNavigation';
+
+import * as ReactNavigation from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
+import AppNavigation from '../Navigation/AppNavigation';
+
+// REDUX
+// import StartupActions from '../Redux/StartupRedux';
+import * as PlayingState from '../Redux/PlayingState';
 import { connect } from 'react-redux';
-import StartupActions from '../Redux/StartupRedux';
 import ReduxPersist from '../Config/ReduxPersist';
-import { BlurView } from 'react-native-blur';
+
+// import { BlurView } from 'react-native-blur';
 
 import styles from './Styles/RootContainerStyles';
-import { Metrics, Colors, Fonts } from '../Themes';
+import { Colors, Fonts } from '../Themes';
 
-import SearchBar from './SearchBar';
-import FooterNavigation from './FooterNavigation';
+import SearchBarHeader from './SearchBarHeader';
+// import InitialScreen from './InitialScreen';
+import GGomaFooter from './GGomaFooter';
+import TabBarNavigation from './tab-bar-navigation';
 
 import {
   Container,
@@ -22,25 +31,43 @@ import {
   Text,
   Content
 } from 'native-base';
+
 import { StyleSheet, ScrollView } from 'react-native';
 
-class RootContainer extends Component {
+function ReduxNavigation(props) {
+  const { dispatch, nav } = props;
+  const navigation = ReactNavigation.addNavigationHelpers({
+    dispatch,
+    state: nav
+  });
+  return navigation;
+}
+
+export class RootContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searching: false,
       showSearchContainer: false,
-      searchResults: []
+      searchResults: [],
+      nowPlaying: false,
+      searchQuery: ''
     };
     this.handleSearching = this.handleSearching.bind(this);
     this.passSearchResults = this.passSearchResults.bind(this);
     this.handleClearSearch = this.handleClearSearch.bind(this);
+    this.handleNavigation = this.handleNavigation.bind(this);
+    this.setSearchQuery = this.setSearchQuery.bind(this);
   }
-  componentDidMount() {
-    // if redux persist is not active fire startup action
-    if (!ReduxPersist.active) {
-      this.props.startup();
-    }
+  // componentDidMount() {
+  // // if redux persist is not active fire startup action
+  // if (!ReduxPersist.active) {
+  // this.props.startup();
+  // }
+  // }
+
+  handleNavigation(navAction) {
+    return ReduxNavigation(navAction);
   }
 
   handleSearching() {
@@ -51,27 +78,42 @@ class RootContainer extends Component {
   }
 
   handleClearSearch(event) {
-    this.setState({ searchResults: [] });
+    this.setState({ searchResults: [], searchQuery: '' });
+  }
+
+  setSearchQuery(query) {
+    this.setState({ searchQuery: query });
   }
 
   render() {
+    var navigation = this.handleNavigation(this.props);
     return (
       <Container style={styles.applicationView}>
-        <StatusBar barStyle="light-content" />
-        <SearchBar
+        <SearchBarHeader
+          navigation={navigation}
           handleClearSearch={this.handleClearSearch}
           passSearchResults={this.passSearchResults}
           handleSearching={this.handleSearching}
+          setSearchQuery={this.setSearchQuery}
+          searchQuery={this.state.searchQuery}
           showSearchContainer={this.state.showSearchContainer}
         />
         <Content>
           {this.state.searchResults.length > 1 ? (
             <ScrollView>{this.state.searchResults}</ScrollView>
           ) : (
-            <ReduxNavigation />
+            <AppNavigation navigation={navigation} />
           )}
         </Content>
-        <FooterNavigation />
+        {this.props.playerState.playerState ? (
+          <GGomaFooter
+            ref="footer"
+            hide={() => this.refs.tab.hide()}
+            show={() => this.refs.tab.show()}
+            hideTabBarNavigation={v => this.refs.tab.setHeight(v)}
+          />
+        ) : null}
+        <TabBarNavigation ref="tab" navigation={navigation} />
       </Container>
     );
   }
@@ -91,9 +133,9 @@ const tempStyles = StyleSheet.create({
   }
 });
 
-// wraps dispatch to create nicer functions to call within our component
-const mapDispatchToProps = dispatch => ({
-  startup: () => dispatch(StartupActions.startup())
+const mapStateToProps = state => ({
+  nav: state.nav,
+  playerState: state.playingState
 });
 
-export default connect(null, mapDispatchToProps)(RootContainer);
+export default connect(mapStateToProps)(RootContainer);
